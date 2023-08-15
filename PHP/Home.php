@@ -23,18 +23,33 @@
                     </form>
 
                     <?php
+
                         session_start();
-                        if (isset($_POST['account'])) {
-                            $con = mysqli_connect("localhost" ,"root" ,"" ,"signup_db");
+                        
+                        if (isset($_SESSION['email'])) {
 
-                            $email = $_SESSION['email'];
+                            if (isset($_POST['account'])) {
+                                $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
+    
+                                $email = $_SESSION['email'];
+    
+                                $sql = "select * from accountinfo where Email = '$email'";
+                                $rows = mysqli_query($con ,$sql);
 
-                            $sql = "select * from signup where Email = '$email'";
-                            $rows = mysqli_query($con ,$sql);
-                            $result = mysqli_num_rows($rows);
-                            if ($result > 0) {
-                                header("location:Login.php");
+                                $result = mysqli_num_rows($rows);
+                                if ($result > 0) {
+                                    header("location:Authentication.php");
+                                } 
+                                else {
+                                    header("location:AccountOpen.php");
+                                }
+                            }
 
+                        } else {
+                            header("location:Login.php");
+                        }
+
+                      
                                 // $con = mysqli_connct("localhost" ,"root" ,"" ,"accountopen_db");
                                 // $sql = "select * from accountinfo where Email = '$email'";
                                 // $rows = mysqli_query($con ,$sql);
@@ -43,9 +58,6 @@
                                 // if ($result > 0) {
                                 //     header("Authentication.php");
                                 // }
-
-                            } 
-                        }
                     ?>
 
                     <li class="btn primary">Payments</li>
@@ -135,8 +147,14 @@
                         </div>
                     </li>
                     <li class="link hover-links">Help ?</li>
-                   <a href="Login.html" style="text-decoration: none;"><li class="btn btn-primary">Log in</li></a>
-                   <a href="Signup.html" style="text-decoration: none;"><li class="btn primary">Signup</li></a>
+
+                    <form method="post"><li><input type="submit" value="Log out" name="logout" class="btn primary"></li></form>
+                    <?php
+                        if (isset($_POST['logout'])) {
+                            header("location:Login.php");
+                        }
+                    ?>
+                   
                 </ul>
             </nav>
         </div>

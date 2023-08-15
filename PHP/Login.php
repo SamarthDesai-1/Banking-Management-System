@@ -56,6 +56,7 @@
     include("DatabaseClassFile.php");
 
     if (isset($_POST['login'])) {
+
         $email = $_POST['email'];
         $password = $_POST['pass'];
 
@@ -74,11 +75,17 @@
                 $_SESSION['email'] = $email;
 
                 header("location:Home.php");
+
             } else {
                 ?>
                     <script>alert("Invalid : Username and Password please try Again....");</script>
                 <?php
             }
+            
+        }
+        else {
+
+            header("location:Signup.php");
             
         }
     
