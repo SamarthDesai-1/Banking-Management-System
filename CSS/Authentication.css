@@ -65,7 +65,7 @@
 }
 .btn-section {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 50px;
 }
 .btn-primary {
@@ -74,10 +74,10 @@
     color: #4895ef;
     font-size: 1rem;
     cursor: pointer;
-    
+    border-radius: 5px;
+    padding: 10px 10px;
 }
 .btn {
-    max-width: 500px;
     padding: 10px 30px;
     background-color: #4895ef;
     color: white;
@@ -88,7 +88,7 @@
     transition: 0.4s ease-in-out;
 }
 .btn:hover {
-    background-color: red;
+    background-color: #fff;
     color: #4895ef;
     border: 2px solid #4895ef;
 }
