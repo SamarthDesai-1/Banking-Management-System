@@ -22,8 +22,9 @@
                     <br>
                     <div class="btn-section">
                         <input type="submit" value="Verify" class="btn">
-                        <input type="submit" value="Forget PIN" class="btn-primary">
+                        <!-- <input type="submit" value="Forget PIN" class="btn-primary"> -->
                     </div>
+                    <input type="button" value="Himani" class="btn">
                 </form>
                 
             </div>
@@ -42,6 +43,7 @@
         
     
     </div>
+
 </body>
 </html>
 

@@ -77,6 +77,7 @@
     
 }
 .btn {
+    min-width: 500px;
     padding: 10px 30px;
     background-color: #4895ef;
     color: white;
