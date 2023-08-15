@@ -21,22 +21,33 @@
                     <form method="post">
                         <li><input type="submit" value="My Account" name="account" class="btn btn-primary"></li>
                     </form>
+
                     <?php
+                        session_start();
                         if (isset($_POST['account'])) {
                             $con = mysqli_connect("localhost" ,"root" ,"" ,"signup_db");
 
-                            $email = $_POST['email'];
+                            $email = $_SESSION['email'];
+
                             $sql = "select * from signup where Email = '$email'";
                             $rows = mysqli_query($con ,$sql);
                             $result = mysqli_num_rows($rows);
                             if ($result > 0) {
                                 header("location:Login.php");
-                            } else {
-                                // header("AccountOpen.php");
-                                header("location:GeneratePIN.php");
-                            }
+
+                                // $con = mysqli_connct("localhost" ,"root" ,"" ,"accountopen_db");
+                                // $sql = "select * from accountinfo where Email = '$email'";
+                                // $rows = mysqli_query($con ,$sql);
+                                // $result = mysqli_num_rows($rows);
+
+                                // if ($result > 0) {
+                                //     header("Authentication.php");
+                                // }
+
+                            } 
                         }
                     ?>
+
                     <li class="btn primary">Payments</li>
                     <li class="link hover-links">Cards
                         <div class="megamenu">

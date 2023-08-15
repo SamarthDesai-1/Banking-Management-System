@@ -116,7 +116,7 @@
         </div>
     </div>
 
-    <script src="./JAVASCRIPT/MyAccount.js"></script>
+    <script src="/COLLEGE MINI PROJECT/JAVASCRIPT/MyAccount.js"></script>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="box-1">
-            <form action="" method="get" class="form-section">
+            <form method="get" class="form-section">
                 <table class="tab">
 
                     <div class="name-section">
@@ -155,6 +155,12 @@
                 $insert = new Database();
                 $sql = "insert into accountinfo(ID ,Firstname ,Middlename ,Lastname ,Currency ,AccountType ,Mobile ,Email ,Nominee ,Address) values ($getPin ,'$firstname' ,'$middlename' ,'$lastname' ,'$currency' ,'$accounttype' ,'$mobile' ,'$email' ,'$nominee' ,'$address')";
                 $insert->insertTable("accountopen_db" ,$sql);
+
+                ?>
+                    <script>
+                        window.location.href = "GeneratePIN.php";
+                    </script>
+                <?php
                
             }
             else {

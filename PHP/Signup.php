@@ -88,7 +88,10 @@
             <?php
                 $password = $_POST['password'];
                 $confirmpassword = $_POST['confirmpass'];
-                if ($password === $confirmpassword) {
+                if ($password == "" && $confirmpassword == "") {
+                    header("location:Signup.php");
+                }
+                else if ($password === $confirmpassword) {
                     $insertion = new Database();
                     $username = $_POST['name'];
                     $sql = "insert into signup(Email ,Username ,Password) values ('$email' ,'$username' ,'$password')";

@@ -70,7 +70,9 @@
             $resultTwo = mysqli_num_rows($rowsTwo);
             
             if ($resultTwo == 1) {
+                
                 $_SESSION['email'] = $email;
+
                 header("location:Home.php");
             } else {
                 ?>
@@ -83,3 +85,4 @@
     }
     
 ?>
+
