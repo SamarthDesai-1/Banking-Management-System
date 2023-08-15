@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap'); 
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap'); 
 
 * {
     margin: 0px;
@@ -77,7 +77,7 @@
     
 }
 .btn {
-    min-width: 500px;
+    max-width: 500px;
     padding: 10px 30px;
     background-color: #4895ef;
     color: white;
@@ -94,4 +94,4 @@
 }
 
 
-
+ */
