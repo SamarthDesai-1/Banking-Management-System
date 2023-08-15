@@ -22,7 +22,7 @@
                     <br>
                     <div class="btn-section">
                         <input type="submit" value="Verify" class="btn">
-                        <input type="button" value="Forget PIN" class="btn-primary">
+                        <input type="submit" value="Forget PIN" class="btn-primary">
                     </div>
                 </form>
                 

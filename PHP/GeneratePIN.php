@@ -15,6 +15,7 @@
                     <h1>Generate PIN from here.</h1>
                     <ul>
                         <li><h3>By simply click on generate button.</h3></li>
+                        <li><h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum, iusto.</h1></li>
                     </ul>
                     <button type="button" class="btn" id="open-popup" onclick="createPopup(id)">Generate</button>
                 </div>
