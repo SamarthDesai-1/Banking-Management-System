@@ -68,6 +68,14 @@
     justify-content: center;
     margin-top: 50px;
 }
+.btn-primary {
+    border: 2px solid #4895ef;
+    background: transparent;
+    color: #4895ef;
+    font-size: 1rem;
+    cursor: pointer;
+    
+}
 .btn {
     padding: 10px 30px;
     background-color: #4895ef;
@@ -83,5 +91,6 @@
     color: #4895ef;
     border: 2px solid #4895ef;
 }
+
 
 
