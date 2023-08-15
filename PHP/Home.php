@@ -18,6 +18,7 @@
         <div class="link-section">
             <nav>
                 <ul class="navbar-li">
+
                     <form method="post">
                         <li><input type="submit" value="My Account" name="account" class="btn btn-primary"></li>
                     </form>
@@ -149,12 +150,15 @@
                     <li class="link hover-links">Help ?</li>
 
                     <form method="post">
-                        <li><input type="submit" value="Log out" name="logout" class="btn primary"></li>
+                        <li><input type="submit" value="Log out" class="btn btn-primary" name="logout"></li>
                     </form>
                     <?php
-                        // if (isset($_POST['logout'])) {
-                        //     header("location:Login.php");
-                        // }
+                        if (isset($_POST['logout'])) {
+                            session_destroy();
+                            ?>
+                                <script>window.location.href = "Login.php";</script>
+                            <?php
+                        }
                     ?>
                    
                 </ul>
