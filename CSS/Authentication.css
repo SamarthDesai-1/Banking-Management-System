@@ -7,12 +7,12 @@
     font-family: 'Poppins', sans-serif;
 }
 .container {
-    max-width: 1180px;
+    /* max-width: 1180px;
     margin-inline: auto;
     border: 2px solid cadetblue;
     margin-block: 50px;
     display: flex;
-    column-gap: 50px;
+    column-gap: 50px; */
 }
 .box-2 {
     border: 1px solid black;
@@ -83,6 +83,8 @@
     color: #4895ef;
     border: 2px solid #4895ef;
 }
-.primary {
-    background-color: black;
+
+
+.btn-section .btn-primary {
+    padding: 10px 20px;
 }
