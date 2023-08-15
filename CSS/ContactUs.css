@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap'); 
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    max-width: 1180px;
+    margin-inline: auto;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Button CSS */
+.btn-primary {
+    border: 2px solid #4361ee;
+    background-color: white;
+    color: #4361ee;
+    margin-right: 30px;
+}
+.btn-primary:hover {
+    cursor: pointer;
+}
+.btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+/* Button CSS */
+
+.contact-text {
+    margin-top: 12vh;
+    display: inline-block;
+    margin-left: 8vw;
+    font-size: 2rem;
+}
+.tag-section>h1 {
+    font-size: 3rem;
+}
+.tag-section {
+    max-width: 450px;
+    margin-left: 8vw;
+}
+.info-section {
+    max-width: 250px;
+    margin-left: 8vw;
+    max-height: 250px;
+}
+.info-section>p {
+    font-weight: 600;
+}
+.box-section {
+    display: flex;
+    gap: 100px;
+}
+.form-section>form {
+    margin-inline: auto;
+    min-width: 600px;
+    padding-inline: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+textarea {
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+.format {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    max-width: 1000px;
+}
+.spacer {
+    margin-block: 20px;
+}
+.submit {
+    background-color: #4895ef;
+    max-width: 100px;
+    text-align: center;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit:hover {
+    background-color: #4361ee;
+}
+
+/* Footer CSS */
+.footer-2 {
+    margin-block: 40px;
+    margin-left: 10px;
+}
+
+.footer-section {
+    max-width: 1180px;
+    margin-inline: auto;
+    margin-bottom: 10vh;
+}
+.footer-1 {
+    display: flex;
+}
+.border-style {
+    border-top: 1px solid grey;
+    opacity: 0.5;
+    margin-block: 25px;
+}
+.footer-section h2 {
+    color: #4361ee;
+    margin-left: 13px;
+}
+.footer-1 p {
+    font-size: 1rem;
+    border-right: 1px solid grey;
+    padding: 0px 10px;
+    color: #4895ef;
+    cursor: pointer;
+}
+.footer-1 p:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+} 
+/* Footer CSS */

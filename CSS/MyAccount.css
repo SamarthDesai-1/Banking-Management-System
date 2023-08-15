@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap'); 
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 1180px;
+    margin-inline: auto;
+    margin-top: 10px;
+}
+.logo-section {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    padding-block: 10px;
+}
+
+/* Account holder info section starts at here */
+.custom-image {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 5px;
+}
+.image-section {
+    display: flex;
+    flex-direction: column;   
+}
+.account-holder-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* Account holder info section ends at here */
+
+/* Account info section starts at here */
+.account-info-section {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-block: 10px;
+}
+/* Account info section ends at here */
+
+
+
+
+
+/* Display content section starts here */
+
+    /* grid section starts here */
+    .display-content-section {
+        border: 2px solid black;
+        max-width: 1180px;
+        display: grid;
+        margin-top: 20px;
+        row-gap: 10px;
+        column-gap: 10px;
+        grid-template-columns: 200px 200px 200px 200px 200px;
+        justify-content: center;
+
+    }
+    .box {
+        border: 2px solid green;
+        padding: 12px;
+    }
+    #box-1 {
+        background-color: #4895ef;
+        grid-row: span 1;
+        grid-column: span 3;
+        padding: 20px 20px;
+        border: 2px solid black;
+        color: white;
+    }
+    #box-2 {
+        background-color: #4361ee;
+        grid-column: span 2;
+        padding: 20px 20px;
+        border: 2px solid black;
+        color: white
+    }
+    #box-3 {
+        background-color: #4895ef;
+        color: white;
+        border: 2px solid black;
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+    #box-4 {
+        background-color: #4895ef;
+        color: white;
+        border: 2px solid black;
+        grid-column: span 3;
+        grid-row: span 3;
+    }
+    #box-5 {
+        background-color: #4361ee;
+        color: white;
+        border: 2px solid black;
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    #box-8 {
+        background-color: #4895ef;
+        color: white;
+        grid-column: span 3;
+        grid-row: span 7;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    .dynamic-progress-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 8px;
+        width: 300px;
+        padding: 20px;
+        box-shadow: 0px 0px 30px #ededed;
+    }
+    .circular-progress {
+        position: relative;
+        height: 240px;
+        width: 240px;
+        background-color: #f0ff;
+        border-radius: 50%;
+        background: conic-gradient(#7d2ae8 ,3.6deg ,#ededed 0deg); 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;   
+    }
+    .circular-progress::before {
+        content: "";
+        position: absolute;
+        height: 210px;
+        width: 210px;
+        background-color: #fff;
+        border-radius: 50%;
+    } 
+    .progress-value {
+        position: relative;
+        font-size: 30px;
+        font-weight: 600;
+        color: #7d2ae8;
+    }
+    #box-23 {
+        background-color: #4895ef;
+        color: white;
+        border: 1px solid black;
+        grid-row: span 2;
+        grid-column: span 3;
+    }
+    /* grid section endss here */
+
+    /* payment-statement-section starts here */
+    .payment-statement-section {
+        border: 1px solid red;
+        margin-top: 10px;
+    }
+    /* payment-statement-section endss here */
+
+/* Display content section endss here */
+
+
+
+
+
+/* Utlity classes */
+.text-color-blue {
+    color: #4361ee;
+}

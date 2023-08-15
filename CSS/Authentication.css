@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap'); 
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    max-width: 1180px;
+    margin-inline: auto;
+    border: 2px solid cadetblue;
+    margin-block: 50px;
+    display: flex;
+    column-gap: 50px;
+}
+.box-2 {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px 50px;
+}
+.box-2>h1 {
+    margin-block: 20px;
+}
+.box-2>h3 {
+    color: #4895ef;
+}
+.liner {
+    border-top: 1px solid #4895ef;
+    margin-bottom: 10px;
+}
+
+.admin-image {
+    border: 1px solid red;
+    position: relative;
+    top: 50px;
+    left: 85px;
+    border-radius: 50%;
+}
+.form-section {
+    border: 1px solid black;
+    min-width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 75px 20px;
+}
+.inner-section {
+    display: flex;
+}
+.format {
+    padding: 20px 20px;
+    color: #4895ef;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 20px #d2d4d6;
+    border-radius: 5px;
+    min-width: 250px;
+}
+.format::placeholder {
+    color: #4895ef;
+    font-weight: bold;
+}
+.btn-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.btn {
+    padding: 10px 30px;
+    background-color: #4895ef;
+    color: white;
+    border: 2px solid #4895ef;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.4s ease-in-out;
+}
+.btn:hover {
+    background-color: red;
+    color: #4895ef;
+    border: 2px solid #4895ef;
+}
+.primary {
+    background-color: black;
+}

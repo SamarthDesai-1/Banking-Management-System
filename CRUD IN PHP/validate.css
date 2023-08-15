@@ -1,0 +1,7 @@
+.result {
+    background-color: blueviolet;
+    color: white;
+    max-width: 75px;
+    padding: 15px 20px;
+    margin-block: 15px;
+}

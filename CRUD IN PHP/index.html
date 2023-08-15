@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD in PHP</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Contact us</h1>
+        </div>
+
+        <form action="index.php" class="form-class" method="get">
+            <div class="left-section">
+                <input type="text" placeholder="Name" name="name" class="format"><br>
+                <input type="email" placeholder="Email" name="email" class="format"><br>
+                <input type="text" placeholder="Mobile" name="mobile" class="format"><br>
+            </div>
+            <div class="right-section">
+                <textarea name="address" cols="40" rows="9" placeholder="Address" class="format"></textarea><br><br>
+                <label><input type="radio" name="gender" value="Male">  Male</label>
+                <span style="margin-inline:5px"></span>
+                <label><input type="radio" name="gender" value="Female">    Female</label><br><br>
+                <input type="submit" value="Insert" class="btn" name="subbtn">
+                <input type="submit" value="Update" class="btn" name="upbtn">
+                <!-- <input type="submit" value="Delete" class="btn" name="delbtn"> -->
+                <input type="submit" value="Read" class="btn" name="selbtn">
+               
+            </div>
+            
+        </form>
+
+    </div>
+</body>
+</html>

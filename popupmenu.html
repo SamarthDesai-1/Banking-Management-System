@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-50%);
+        }
+        .popup {
+            position: fixed;
+            top: 100vh;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+
+        }
+        .popup-content {
+            box-shadow: 0px 0px 20px #d2d4d6;
+        }
+        .popup .overlay {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0,0,5);
+            opacity: 0;
+
+            transition: opacity 100ms ease-in-out 200ms;
+        }
+        .popup .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-50%) scale(1.15);
+            opacity: 0;
+            width: 95%;
+            max-width: 350px;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0px 2px 2px 5px(0,0,0,0,05);
+            transition: all 300ms ease-in-out;
+        }
+        .popup .popup-content h2 {
+            margin: 10px 0px;
+            font-size: 25px;
+            color: #111;
+            text-align: center;
+        }
+        .popup .popup-content p {
+            margin: 15px 0px;
+            color: #222;
+            font-size: 16px;
+            text-align: center;
+        }
+        .popup .popup-content .controls {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0px 0px;
+            
+        }
+        .popup .popup-content .controls button {
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .popup .popup-content .controls .close-btn {
+            background: transparent;
+            color: #3284ed;
+
+        }
+        .popup .popup-content .controls .submit-btn {
+            background: #3284ed;
+            color: #fff;
+        }
+        .popup.active {
+            top: 0px;
+            transition: top 0ms ease-in-out 0ms;
+            
+        }
+        .popup.active .overlay {
+            opacity: 1;
+            transition: all 300ms ease-in-out;
+        }
+        .popup.active .popup-content {
+            transform: translate(-50% ,-50%) scale(1);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="center">
+            <button id="open-popup" onclick="createPopup(id)">Open-popup</button>
+        </div>
+
+        <div class="popup" id="popup">
+            <div class="overlay"></div>
+            <div class="popup-content">
+                <h2>This is Popup title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque libero adipisci accusamus maxime enim culpa in minus nihil eveniet quas possimus, eius atque sapiente fugiat cum vitae corporis perspiciatis tempore.</p>
+                <div class="controls">
+                    <button class="close-btn">Close</button>
+                    <button class="submit-btn">Submit</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+   
+
+    <script>
+        function createPopup(id) {
+            let popupNode = document.querySelector(id)
+            let overlay = popupNode.querySelector(".overlay");
+            let closebtn = popupNode.querySelector(".close-btn");
+            function openpopup() {
+                popupNode.classList.add("active");
+            }
+            function closepopup() {
+                popupNode.classList.remove("active");
+            }
+
+
+            overlay.addEventListener("clicl" ,closepopup);
+            closebtn.addEventListener("click" ,closepopup);
+            return openpopup;
+
+        }
+
+        let popup = createPopup("#popup");
+        document.querySelector("#open-popup").addEventListener("click" ,popup);
+    </script>
+
+</body>
+</html>
