@@ -105,14 +105,35 @@
     $sql = "create table pininfo(ID int AUTO_INCREMENT primary key ,Email varchar(50) ,Pin varchar(4))";
     $create->createTable("pin_db" ,$sql);
 
-    if ($email != "") {
-        $insert = new Database();
-        $sql = "insert into pininfo(Email ,Pin) values ('$email' ,'$random')";
-        $insert->insertTable("pin_db" ,$sql);
+    $con = mysqli_connect("localhost" ,"root" ,"" ,"pin_db");
+    $sql = "select * from pininfo where Email = '$email'";
+    $rows = mysqli_query($con ,$sql);
+    $result = mysqli_num_rows($rows);
+
+    if ($result > 0) {
+
+        header("location:Authentication.php");
+
+        $con = mysqli_connect("localhost" ,"root" ,"" ,"pin_db");
+        $sql = "select Pin from pininfo where Email = '$email'";
+        $rows = mysqli_query($con ,$sql);
+        
+        
     }
     
+    else {
+        
+        if ($email != "") {
+            $insert = new Database();
+            $sql = "insert into pininfo(Email ,Pin) values ('$email' ,'$random')";
+            $insert->insertTable("pin_db" ,$sql);
+        }
+    
+    }
+
     $_SESSION['email'] = "";
 
 
 
 ?>
+
