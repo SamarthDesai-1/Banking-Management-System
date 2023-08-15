@@ -69,13 +69,17 @@
     margin-top: 50px;
 }
 .btn-primary {
-    border: 2px solid #4895ef;
     background: transparent;
     color: #4895ef;
     font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
     padding: 10px 10px;
+    border: none;
+
+}
+.btn-primary:hover {
+    border: none;
 }
 .btn {
     padding: 10px 30px;
