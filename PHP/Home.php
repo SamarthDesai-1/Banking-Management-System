@@ -148,11 +148,13 @@
                     </li>
                     <li class="link hover-links">Help ?</li>
 
-                    <form method="post"><li><input type="submit" value="Log out" name="logout" class="btn primary"></li></form>
+                    <form method="post">
+                        <li><input type="submit" value="Log out" name="logout" class="btn primary"></li>
+                    </form>
                     <?php
-                        if (isset($_POST['logout'])) {
-                            header("location:Login.php");
-                        }
+                        // if (isset($_POST['logout'])) {
+                        //     header("location:Login.php");
+                        // }
                     ?>
                    
                 </ul>
