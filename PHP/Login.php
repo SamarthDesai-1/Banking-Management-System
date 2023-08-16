@@ -79,7 +79,8 @@
                 
                 $_SESSION['email'] = $email;
 
-                header("location:Home.php");
+                header("location:GeneratePIN.php");
+                // header("location:Home.php");
 
             } else {
                 ?>

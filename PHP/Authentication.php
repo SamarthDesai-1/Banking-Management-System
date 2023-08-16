@@ -18,10 +18,10 @@
             <div class="form-section">
 
                 <form method="post">
-                    <input type="password" class="format" placeholder="PIN" maxlength="4">
+                    <input type="password" class="format" placeholder="PIN" maxlength="4" name="pin">
                     <br>
                     <div class="btn-section">
-                        <input type="submit" value="Verify" class="btn">
+                        <input type="submit" value="Verify" class="btn" name="subbtn">
                         <input type="submit" value="Forget PIN" class="btn-primary">
                     </div>
                 </form>
@@ -46,3 +46,34 @@
 </body>
 </html>
 
+<?php
+
+    session_start();
+
+    $email = $_SESSION['email'];
+   
+
+    if (isset($_POST['subbtn'])) {
+
+        $pin = $_POST['pin'];
+        $con = mysqli_connect("localhost" ,"root" ,"" ,"pin_db");
+        $sql = "select Pin from pininfo where Email = '$email'";
+        $result = mysqli_query($con ,$sql);
+
+        $rows = mysqli_fetch_array($result);
+
+        if ($pin == $rows['Pin']) {
+            header("location:MyAccount.php");
+        }
+        else {
+            ?>
+                <script>alert("Retype PIN is wrong")</script>
+            <?php
+        }
+
+    }
+  
+
+
+
+?>
