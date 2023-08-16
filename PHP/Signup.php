@@ -83,7 +83,8 @@
                 </script>
             <?php
 
-        } else {
+        } 
+        else {
             ?>
             <?php
                 $password = $_POST['password'];
@@ -96,6 +97,9 @@
                     $username = $_POST['name'];
                     $sql = "insert into signup(Email ,Username ,Password) values ('$email' ,'$username' ,'$password')";
                     $insertion->insertTable("signup_db" ,$sql);
+
+                    header("location:Login.php");
+                    
                 } else {
                     ?>
                         <script>
