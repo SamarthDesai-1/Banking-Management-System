@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up Page</title>
-    <link rel="stylesheet" href="/COLLEGE MINI PROJECT/CSS/Signup.css">
+    <!-- <link rel="stylesheet" href="/COLLEGE MINI PROJECT/CSS/Signup.css"> -->
+    <link rel="stylesheet" href="E:\XAMPP\htdocs\College Mini Project\CSS\Signup.css">
 </head>
 <body>
     <div class="container">
@@ -99,7 +100,7 @@
                     $insertion->insertTable("signup_db" ,$sql);
 
                     header("location:Login.php");
-                    
+
                 } else {
                     ?>
                         <script>
