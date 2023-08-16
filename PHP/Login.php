@@ -45,7 +45,12 @@
        
     </div>
 
-    <script src="./JAVASCRIPT/Login.js"></script>
+    <!-- <script src="./JAVASCRIPT/Login.js"></script> -->
+    <script>
+        function toRedirect() {
+            
+        }
+    </script>
 </body>
 </html>
 
@@ -89,6 +94,9 @@
             
         }
     
+    } 
+    else if (isset($_POST['signin'])) {
+        header("location:Signup.php");
     }
     
 ?>
