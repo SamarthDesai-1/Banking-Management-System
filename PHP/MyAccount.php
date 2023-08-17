@@ -1,78 +1,78 @@
 <?php
 
-    // session_start();
-    // $email = $_SESSION['email'];
+    session_start();
+    $email = $_SESSION['email'];
 
 
-    // include("DatabaseClassFile.php");
-    // $database = new Database();
-    // $database->db("customerbankdetails_db");
+    include("DatabaseClassFile.php");
+    $database = new Database();
+    $database->db("customerbankdetails_db");
 
 
-    // $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
-    // $sql = "select ID from accountinfo where Email = '$email'";
-    // $rows = mysqli_query($con ,$sql);
-    // $result = mysqli_fetch_array($rows);
-    // $id = $result['ID'];
+    $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
+    $sql = "select ID from accountinfo where Email = '$email'";
+    $rows = mysqli_query($con ,$sql);
+    $result = mysqli_fetch_array($rows);
+    $id = $result['ID'];
 
 
-    // $create = new Database();
-    // $sql = "create table customerinfo(ID int primary key ,Email varchar(50) ,MICR varchar(10) ,AccountNo varchar(20) ,IFSC varchar(20) ,CurrentBalance numeric ,MinBalance numeric ,Loan varchar(10))";
-    // $create->createTable("customerbankdetails_db" ,$sql);
+    $create = new Database();
+    $sql = "create table customerinfo(ID int primary key ,Email varchar(50) ,MICR varchar(10) ,AccountNo varchar(20) ,IFSC varchar(20) ,CurrentBalance numeric ,MinBalance numeric ,Loan varchar(10))";
+    $create->createTable("customerbankdetails_db" ,$sql);
 
-    // class Details {
+    class Details {
 
-    //     function generateMICR() {
-    //         $MICR = rand(100000000 ,999999999);
-    //         return $MICR;
-    //     }
+        function generateMICR() {
+            $MICR = rand(100000000 ,999999999);
+            return $MICR;
+        }
 
-    //     function generateAccountNo() {
-    //         $ACCOUNT = rand(10000000000000 ,99999999999999);
-    //         return $ACCOUNT;
-    //     }
+        function generateAccountNo() {
+            $ACCOUNT = rand(10000000000000 ,99999999999999);
+            return $ACCOUNT;
+        }
 
-    //     function generateIFSC() {
-    //         $IFSCprefix = "AMEX";
-    //         $IFSC = rand(1000000 ,9999999);
-    //         return $IFSCprefix.$IFSC;
-    //     }
+        function generateIFSC() {
+            $IFSCprefix = "AMEX";
+            $IFSC = rand(1000000 ,9999999);
+            return $IFSCprefix.$IFSC;
+        }
         
-    // }
+    }
 
-    // $MICR = new Details();
-    // $micr = $MICR->generateMICR();
+    $MICR = new Details();
+    $micr = $MICR->generateMICR();
 
-    // $ACCOUNT = new Details();
-    // $account = $ACCOUNT->generateAccountNo();
+    $ACCOUNT = new Details();
+    $account = $ACCOUNT->generateAccountNo();
 
-    // $IFSC = new Details();
-    // $ifsc = $IFSC->generateIFSC();
+    $IFSC = new Details();
+    $ifsc = $IFSC->generateIFSC();
 
-    // $toStringMICR = strval($micr);
-    // $toStringACCOUNT = strval($account);
-    // $toStringIFSc = strval($ifsc);
+    $toStringMICR = strval($micr);
+    $toStringACCOUNT = strval($account);
+    $toStringIFSc = strval($ifsc);
 
-    // $insert = new Database();
-    // $sql = "insert into customerinfo(ID ,Email ,MICR ,AccountNo ,IFSC ,CurrentBalance ,MinBalance ,Loan) values('$id' ,'$email' ,'$toStringMICR' ,'$toStringACCOUNT' ,'$toStringIFSc' ,0 ,1500 ,'NULL')";
-    // $insert->insertTable("customerbankdetails_db" ,$sql);
+    $insert = new Database();
+    $sql = "insert into customerinfo(ID ,Email ,MICR ,AccountNo ,IFSC ,CurrentBalance ,MinBalance ,Loan) values('$id' ,'$email' ,'$toStringMICR' ,'$toStringACCOUNT' ,'$toStringIFSc' ,0 ,0 ,'NULL')";
+    $insert->insertTable("customerbankdetails_db" ,$sql);
 
 ?>
 
 
 <?php
 
-    // $pin = $_SESSION['pin'];
+    $pin = $_SESSION['pin'];
 
-    // $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
-    // $sql = "select * from accountinfo where ID = '$pin'";
-    // $rows = mysqli_query($con ,$sql);
-    // $result = mysqli_fetch_array($rows);
+    $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
+    $sql = "select * from accountinfo where ID = '$pin'";
+    $rows = mysqli_query($con ,$sql);
+    $result = mysqli_fetch_array($rows);
 
 
-    // echo "Firstname : ".$result['Firstname'];
-    // echo "Middlename : ".$result['Middlename'];
-    // echo "Lastname : ".$result['Lastname'];
+    echo "Firstname : ".$result['Firstname'];
+    echo "Middlename : ".$result['Middlename'];
+    echo "Lastname : ".$result['Lastname'];
 
 
     
@@ -139,20 +139,85 @@
                 <h4>Account Name : </h4>
             </div>
             <div class="box" id="box-3">
+
+                <!-- PHP Script -->
+                    <?php 
+
+                        $con = mysqli_connect("localhost" ,"root" ,"" ,"customerbankdetails_db");
+                        $sql = "select * from customerinfo where ID = '$pin'";
+                        $rows = mysqli_query($con ,$sql);
+                        $result = mysqli_fetch_array($rows);
+
+                    ?>
                 <h1>Net Balance</h1>
-                <h2>$15,000</h2>
+                <h2><?php echo "$".$result['CurrentBalance']; ?></h2>
+                <!-- PHP Script -->
 
                 <form method="post">
 
                     <div class="form-section">
                         <label>Add Funds</label>
-                        <input type="text" name="" id="">
+                        <input type="number" name="af" id="">
                         <br>                                                                                                                        
                         <label>Withdraw Funds</label>
-                        <input type="text">
+                        <input type="number" name="wf">
                     </div> 
+                    <div class="btn-section">
+                        <button type="submit" class="btn" name="afbtn">Add</button>
+                        <button type="submit" class="btn" name="wfbtn">Withdraw</button>
+                    </div>
 
                 </form>
+
+                <?php
+
+                    if (isset($_POST['afbtn'])) {
+                        $addfunds = $_POST['af'];
+
+                        $con = mysqli_connect("localhost" ,"root" ,"" ,"customerbankdetails_db");
+                        $sql = "select CurrentBalance ,MinBalance from customerinfo where ID = '$pin'";
+                        $rows = mysqli_query($con ,$sql);
+                        $result = mysqli_fetch_array($rows);
+
+                        $previousBALANCE = $result['CurrentBalance'];
+                        $previousMINBALANCE = $result['MinBalance'];
+
+                        if ($addfunds != "") {
+                            $minBalance = ($addfunds * 20) / 100;
+
+                            $newBALANCE = ($previousBALANCE + $addfunds);
+                            $newMINBALANCE = ($previousMINBALANCE + $minBalance);
+                            $sql = "update customerinfo set CurrentBalance = $newBALANCE ,MinBalance = $newMINBALANCE where ID = '$pin'";
+                            mysqli_query($con ,$sql);
+                        }
+                    }
+
+                    if (isset($_POST['wfbtn'])) {
+                        $withdrawfunds = $_POST['wf'];
+
+                        $con = mysqli_connect("localhost" ,"root" ,"" ,"customerbankdetails_db");
+                        $sql = "select CurrentBalance ,MinBalance from customerinfo where ID = '$pin'";
+                        $rows = mysqli_query($con ,$sql);
+                        $result = mysqli_fetch_array($rows);
+
+                        $previousBALANCE = $result['CurrentBalance'];
+                        $previousMINBALANCE = $result['MinBalance'];
+
+                        if ($withdrawfunds != "") {
+                            $minBalance = ($withdrawfunds * 20) / 100;
+
+                            $newBALANCE = ($previousBALANCE - $withdrawfunds);
+                            $newMINBALANCE = ($previousMINBALANCE - $minBalance);
+                            $sql = "update customerinfo set CurrentBalance = $newBALANCE ,MinBalance = $newMINBALANCE where ID = '$pin'";
+                            mysqli_query($con ,$sql);                            
+
+
+                        }
+
+
+                    }
+
+                ?>
 
             </div>
             <div class="box" id="box-4">

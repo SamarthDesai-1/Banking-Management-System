@@ -103,15 +103,25 @@
         grid-column: span 2;
         grid-row: span 2;
     }
+    #box-6 {
+        grid-row: span 3;
+    }
+    #box-7 {
+        grid-row: span 3;
+    }
 
     #box-8 {
         background-color: #4895ef;
         color: white;
         grid-column: span 3;
-        grid-row: span 7;
+        grid-row: span 5; /* span 7 before */
         display: flex;
         gap: 20px;
         align-items: center;
+    }
+    #box-9 {
+        grid-column: span 2;
+        grid-row: span 5;
     }
     .dynamic-progress-bar {
         display: flex;
@@ -180,8 +190,7 @@
     border: 2px solid black;
     display: flex;
     flex-direction: column;
-    margin-block: 10px;
-
+    row-gap: 10px;
 }
 .format {
     max-width: 250px;
@@ -218,4 +227,26 @@
     max-width: 100px;
     padding: 10px 20px;
     cursor: pointer;
+}
+.btn-section {
+    border: 1px solid black;
+    margin-block: 10px;
+}
+
+.transfer-btn {
+    background: linear-gradient(to top right ,#4361ee ,#7d2ae8);
+    padding: 10px 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.transfer-section {
+    margin-block: 10px;
+}
+.balance-section {
+    border: 2px solid black;
+    font-size: 1.2rem;
 }
