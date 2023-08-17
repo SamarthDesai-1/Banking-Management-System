@@ -56,6 +56,8 @@
     if (isset($_POST['subbtn'])) {
 
         $pin = $_POST['pin'];
+        $_SESSION['pin'] = $pin;
+
         $con = mysqli_connect("localhost" ,"root" ,"" ,"pin_db");
         $sql = "select Pin from pininfo where Email = '$email'";
         $result = mysqli_query($con ,$sql);
@@ -63,6 +65,11 @@
         $rows = mysqli_fetch_array($result);
 
         if ($pin == $rows['Pin']) {
+
+            $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
+            $sql = "update accountinfo set ID = '$pin' where Email = '$email'";
+            mysqli_query($con ,$sql);
+
             header("location:MyAccount.php");
         }
         else {

@@ -41,7 +41,7 @@
             <div class="popup-content">
                 <h2>Your PIN</h2>
 
-                <?php echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, ad quia voluptatem labore cum officia vel sed aliquam incidunt itaque explicabo reprehenderit. Voluptatum, ex nisi provident eius dolore labore quasi!</p>"; ?>
+                <?php echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, ad quia voluptatem labore cum officia vel sed aliquam incidunt itaque explicabo reprehenderit. Voluptatum, ex nisi provident eius dolore labore quasi!</p><br><p>Go back to Home page and refresh the page and you can see your financials.</p>"; ?>
                 
                 <?php 
                     $random = rand(1000 ,9999);

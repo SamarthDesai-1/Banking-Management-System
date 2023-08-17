@@ -175,3 +175,7 @@
 .text-color-blue {
     color: #4361ee;
 }
+
+.form-section {
+    border-radius: 50%;
+}

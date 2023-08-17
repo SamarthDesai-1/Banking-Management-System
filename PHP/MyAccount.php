@@ -1,3 +1,91 @@
+<?php
+
+    // session_start();
+    // $email = $_SESSION['email'];
+
+
+    // include("DatabaseClassFile.php");
+    // $database = new Database();
+    // $database->db("customerbankdetails_db");
+
+
+    // $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
+    // $sql = "select ID from accountinfo where Email = '$email'";
+    // $rows = mysqli_query($con ,$sql);
+    // $result = mysqli_fetch_array($rows);
+    // $id = $result['ID'];
+
+
+    // $create = new Database();
+    // $sql = "create table customerinfo(ID int primary key ,Email varchar(50) ,MICR varchar(10) ,AccountNo varchar(20) ,IFSC varchar(20) ,CurrentBalance numeric ,MinBalance numeric ,Loan varchar(10))";
+    // $create->createTable("customerbankdetails_db" ,$sql);
+
+    // class Details {
+
+    //     function generateMICR() {
+    //         $MICR = rand(100000000 ,999999999);
+    //         return $MICR;
+    //     }
+
+    //     function generateAccountNo() {
+    //         $ACCOUNT = rand(10000000000000 ,99999999999999);
+    //         return $ACCOUNT;
+    //     }
+
+    //     function generateIFSC() {
+    //         $IFSCprefix = "AMEX";
+    //         $IFSC = rand(1000000 ,9999999);
+    //         return $IFSCprefix.$IFSC;
+    //     }
+        
+    // }
+
+    // $MICR = new Details();
+    // $micr = $MICR->generateMICR();
+
+    // $ACCOUNT = new Details();
+    // $account = $ACCOUNT->generateAccountNo();
+
+    // $IFSC = new Details();
+    // $ifsc = $IFSC->generateIFSC();
+
+    // $toStringMICR = strval($micr);
+    // $toStringACCOUNT = strval($account);
+    // $toStringIFSc = strval($ifsc);
+
+    // $insert = new Database();
+    // $sql = "insert into customerinfo(ID ,Email ,MICR ,AccountNo ,IFSC ,CurrentBalance ,MinBalance ,Loan) values('$id' ,'$email' ,'$toStringMICR' ,'$toStringACCOUNT' ,'$toStringIFSc' ,0 ,1500 ,'NULL')";
+    // $insert->insertTable("customerbankdetails_db" ,$sql);
+
+?>
+
+
+<?php
+
+    // $pin = $_SESSION['pin'];
+
+    // $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
+    // $sql = "select * from accountinfo where ID = '$pin'";
+    // $rows = mysqli_query($con ,$sql);
+    // $result = mysqli_fetch_array($rows);
+
+
+    // echo "Firstname : ".$result['Firstname'];
+    // echo "Middlename : ".$result['Middlename'];
+    // echo "Lastname : ".$result['Lastname'];
+
+
+    
+
+?>
+
+
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +107,7 @@
                     <!-- <img src="./IMAGES/apple.jpg" alt="" class="custom-image"> -->
                 </div>
                 <div class="name-section">
-                    <h4>Dwayne S J Johnson</h4>
+                    <h4><?php echo $result['Firstname']."   "; echo $result['Middlename']."   "; echo $result['Lastname']; ?></h4>
                 </div>
             </div>
             <!-- Account holder info section ends at here -->
@@ -27,7 +115,7 @@
 
         <!-- Account info section starts at here --> 
         <div class="account-info-section">
-            <h4>Dwayne S J Johnson your Account Statement</h4>
+            <h4><?php echo $result['Firstname']."   "; echo $result['Middlename']."   "; echo $result['Lastname']."   "; ?> your Account Statement</h4>
             
             <div class="date-section">
                 <h4><span id="dynamic-date"></span></h4>
@@ -38,9 +126,9 @@
         <div class="display-content-section">
             <div class="box" id="box-1">
                 <h1>About Bank Info</h1>
-                <h4>Country : </h4>
-                <h4>IFSC Code : </h4>
-                <h4>MICR : </h4>
+                <h4>Country : <?php echo $result['Firstname']; ?></h4>
+                <h4>IFSC Code : <?php echo $result['Middlename']; ?> </h4>
+                <h4>MICR : <?php echo $result['Lastname']; ?> </h4>
                 <h4>Customer ID :</h4>
             </div>
             <div class="box" id="box-2">
@@ -53,6 +141,19 @@
             <div class="box" id="box-3">
                 <h1>Net Balance</h1>
                 <h2>$15,000</h2>
+
+                <form method="post">
+
+                    <div class="form-section">
+                        <label>Add Funds</label>
+                        <input type="text" name="" id="">
+                        <br>                                                                                                                        
+                        <label>Withdraw Funds</label>
+                        <input type="text">
+                    </div> 
+
+                </form>
+
             </div>
             <div class="box" id="box-4">
                 <h1>Currency Convertor</h1>

@@ -34,10 +34,9 @@
         }
     }  
 
-    $create = new Database();
-
 
 ?>
+
 
 
 
