@@ -177,5 +177,45 @@
 }
 
 .form-section {
-    border-radius: 50%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-block: 10px;
+
+}
+.format {
+    max-width: 250px;
+    padding: 10px 20px;
+    outline: none;
+
+}
+.btn {
+    min-width: 123px;
+    padding: 5px 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 2px solid #4361ee;
+    cursor: pointer;
+}
+.drop {
+    min-width: 250px;
+    padding: 10px 20px;
+}
+.curreny-convertor-section {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    row-gap: 10px;
+}
+.format-amount {
+    min-width: 250px;
+    padding: 10px 20px;
+    outline: none;
+
+}
+.con-btn {
+    max-width: 100px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
