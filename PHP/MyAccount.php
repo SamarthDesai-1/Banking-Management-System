@@ -148,6 +148,8 @@
                         $rows = mysqli_query($con ,$sql);
                         $result = mysqli_fetch_array($rows);
 
+                        setcookie("Balance" ,$result['CurrentBalance']);
+
                     ?>
                 <h1>Net Balance</h1>
                 <h2><?php echo "$".$result['CurrentBalance']; ?></h2>
@@ -238,6 +240,11 @@
                 </div>
                 <div class="text-area-section">
                     <h1>Your transaction activities</h1>
+                    <ul>
+                        <li><h4>Lorem ipsum dolor sit amet.</h4></li>
+                        <li><h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, nisi.</h4></li>
+                        <li><h4>Lorem ipsum dolor sit amet</h4></li>
+                    </ul>
                 </div>
             </div>
             <div class="box" id="box-9">box-9</div>

@@ -1,5 +1,5 @@
 <?php
-  setcookie("Samarth" ,"Desai");
+  setcookie("Balance" ,15000);
   echo "Cookies is set";
 ?>
 
@@ -13,10 +13,25 @@
 
   <body>
     <script>
-      let decodeCookie = decodeURIComponent(document.cookie);
-      let ca = decodeCookie.split(";");
-      let splitans = ca[0].split('=');
-      console.log(splitans[1]);
+      class Cookie {
+        getCOOKIE() {
+          let decodeCookie = decodeURIComponent(document.cookie);
+          let ca = decodeCookie.split(";");
+          let splitans = ca[0].split('=');
+          return splitans[1];
+        }
+      }
+
+      const cookie = new Cookie();
+      let ans = cookie.getCOOKIE();
+
+      console.log("Cookie : " + ans);
+      
+      console.log(typeof(ans));
+      let toINT = parseInt(ans);
+      console.log(typeof(toINT));
+      
+      
     </script>
   </body>
 </html>

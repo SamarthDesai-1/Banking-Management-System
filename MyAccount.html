@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account</title>
     <link rel="stylesheet" href="./CSS/MyAccount.css">
 </head>
+
 <body>
     <div class="container">
         <div class="logo-section">
-            <h1 class="text-color-blue">American Express</h1>    
+            <h1 class="text-color-blue">American Express</h1>
             <!-- Account holder info section starts at here -->
             <div class="account-holder-info">
                 <div class="image-section">
@@ -25,15 +27,15 @@
             <!-- Account holder info section ends at here -->
         </div>
 
-        <!-- Account info section starts at here --> 
+        <!-- Account info section starts at here -->
         <div class="account-info-section">
             <h4>Dwayne S J Johnson your Account Statement</h4>
-            
+
             <div class="date-section">
                 <h4><span id="dynamic-date"></span></h4>
             </div>
         </div>
-        <!-- Account info section ends at here --> 
+        <!-- Account info section ends at here -->
 
         <div class="display-content-section">
             <div class="box" id="box-1">
@@ -59,11 +61,15 @@
                 <form method="post">
 
                     <div class="form-section">
-                        <label><h4>Add Funds : </h4></label>
-                        <input type="number" name="" id="" class="format">                                                                                     
-                        <label><h4>Withdraw Funds : </h4></label>
+                        <label>
+                            <h4>Add Funds : </h4>
+                        </label>
+                        <input type="number" name="" id="" class="format">
+                        <label>
+                            <h4>Withdraw Funds : </h4>
+                        </label>
                         <input type="number" class="format">
-                    </div> 
+                    </div>
 
                     <div class="btn-section">
                         <button type="submit" class="btn">Add</button>
@@ -78,7 +84,9 @@
 
                 <form method="post">
                     <div class="curreny-convertor-section">
-                        <label><h4>From : </h4></label>
+                        <label>
+                            <h4>From : </h4>
+                        </label>
                         <select name="" id="" class="drop">
                             <option value="INR">Indian Rupee</option>
                             <option value="USD">American Dollar</option>
@@ -86,7 +94,9 @@
                             <option value="RSR">Russian Rubble</option>
                             <option value="SGD">Singapore Dollar</option>
                         </select>
-                        <label><h4>To : </h4></label>
+                        <label>
+                            <h4>To : </h4>
+                        </label>
                         <select name="" id="" class="drop">
                             <option value="INR">Indian Rupee</option>
                             <option value="USD">American Dollar</option>
@@ -94,12 +104,14 @@
                             <option value="RSR">Russian Rubble</option>
                             <option value="SGD">Singapore Dollar</option>
                         </select>
-                        <label><h4>Amount : </h4></label>
+                        <label>
+                            <h4>Amount : </h4>
+                        </label>
                         <input type="number" name="" id="" class="format-amount">
                         <button type="submit" class="con-btn">Convert</button>
                     </div>
                 </form>
-               
+
 
             </div>
             <div class="box" id="box-5">
@@ -114,17 +126,100 @@
                 <form method="post">
                     <h1>Payment Section</h1>
                     <div class="transfer-section">
-                        <button class="transfer-btn">Transfer Funds</button>
+                        <button class="transfer-btn"><a href="Payment.html" class="links">Transfer Funds</a></button>
                     </div>
                 </form>
 
             </div>
 
             <div class="box" id="box-7">
-                <div class="policy-section">
-                    <h1>Policy Statement</h1>
+                <div class="edit-section">
+                    <!-- <h1>Policy Statement</h1> -->
+                    <h1>Edit Section</h1>
+                    <div class="transfer-section">
+                        <button class="transfer-btn" id="open-popup" onclick="createPopup(id)">Edit Details</button>
+                    </div>
                 </div>
             </div>
+
+            <!-- pop up section -->
+            <div class="popup" id="popup">
+                <div class="overlay"></div>
+                <div class="popup-content">
+                    <div class="header-section">
+                        <h1>Your Account Details</h1>
+                    </div>
+
+                    <form method="post" class="popup-form-section">
+
+                        <div class="section-1">
+                            <div class="name-section">
+                                <label for=""><h4>First Name</h4></label>
+                                <input type="text" class="format popup-form-css">
+                                <label for=""><h4>Middle Name</h4></label>
+                                <input type="text" class="format popup-form-css">
+                                <label for=""><h4>Last Name</h4></label>
+                                <input type="text" class="format popup-form-css">
+                            </div>
+                            <div class="currency-section">
+                                <tr>
+                                    <td class="text-format"><h2>Currency</h2></td>
+                                </tr>
+                                <tr>
+                                    <td class="format"><input type="radio" name="curr" value="USD">&nbsp;&nbsp;USD</td>
+                                    <td class="text-format"><input type="radio" name="curr" value="EUR">&nbsp;&nbsp;EUR</td>
+                                </tr>
+                            </div>
+                            <div class="account-type">
+                                <tr>
+                                    <td class="text-format"><h2>Type of Account</h2></td>
+                                    <td><select name="account" id="" class="select-menu">
+                                        <option value="Savings" class="option-menu">Savings</option>
+                                        <option value="Current" class="option-menu">Current</option>
+                                        <option value="Fixed" class="option-menu">Fixed</option>
+                                        <option value="Recurring" class="option-menu">Recurring</option>
+                                    </select></td>
+                                </tr>
+                            </div>    
+                        </div>
+
+                        <div class="section-2">
+                            <div class="contact-info">
+                                <tr>
+                                    <td class="text-format"><h2>Contact</h2></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-format"><h3>Mobile</h3></td>
+                                    <td><input type="text" class="format" maxlength="10" name="mobile"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-format"><h3>Email</h3></td>
+                                    <td><input type="email" name="email" id="" class="format"></td>
+                                </tr>
+                            </div>    
+                        </div>
+
+                        <div class="section-3">
+                            <tr>
+                                <td class="text-format"><h3>Nominee</h3></td>
+                                <td><input type="text" name="nominee" id="" class="items"></td>
+                            </tr>
+                            <tr>
+                                <td><h3>Address</h3></td>
+                                <td><textarea name="address" id="" cols="30" rows="10" class="items"></textarea></td>
+                            </tr>
+                        </div>
+
+                    </form>
+
+                    <div class="controls">
+                        <button class="close-btn">Close</button>
+                        <button class="submit-btn">Save</button>
+                    </div>
+                </div>
+            </div>
+            <!-- pop up section -->
+
             <div class="box" id="box-8">
                 <div class="dynamic-progress-bar">
                     <div class="circular-progress">
@@ -135,23 +230,47 @@
                 <div class="text-area-section">
                     <h1>Your transaction activities</h1>
                     <ul>
-                        <li><h4>Lorem ipsum dolor sit amet.</h4></li>
-                        <li><h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, nisi.</h4></li>
-                        <li><h4>Lorem ipsum dolor sit amet</h4></li>
+                        <li>
+                            <h4>Lorem ipsum dolor sit amet.</h4>
+                        </li>
+                        <li>
+                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, nisi.</h4>
+                        </li>
+                        <li>
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="box" id="box-9">box-9</div>
+            <div class="box" id="box-9">box-9
+                <div class="progress">
+                    <div class="progress-done">
+
+                    </div>
+                </div>
+
+                <div class="inputcontainer">
+                    <div>
+                        <h3>Value</h3>
+                        <input type="number" class="input">
+                    </div>
+                    <div>
+                        <h3>Max Value</h3>
+                        <input type="number" class="maxInput">
+                    </div>
+                </div>
+
+            </div>
             <div class="box" id="box-10">box-10</div>
-            <div class="box" id="box-11">box-11</div>
+            <!-- <div class="box" id="box-11">box-11</div>
             <div class="box" id="box-12">box-12</div>
-            <div class="box" id="box-13">box-13</div>
+            <div class="box" id="box-13">box-13</div> -->
             <div class="box" id="box-14">box-14</div>
-            <div class="box" id="box-15">box-15</div>
+            <!-- <div class="box" id="box-15">box-15</div>
             <div class="box" id="box-16">box-16</div>
-            <div class="box" id="box-17">box-17</div>
+            <div class="box" id="box-17">box-17</div> -->
             <div class="box" id="box-18">box-18</div>
-            <div class="box" id="box-19">box-19</div>
+            <!-- <div class="box" id="box-19">box-19</div>
             <div class="box" id="box-20">box-20</div>
             <div class="box" id="box-21">box-21
                 <div class="payment-statement-section">
@@ -159,10 +278,7 @@
                 </div>
             </div>
             <div class="box" id="box-22">box-22</div>
-            <div class="box" id="box-23">
-                <h1>Cibil Score</h1>
-                
-            </div>
+            <div class="box" id="box-23">box-23</div>
             <div class="box" id="box-24">box-24</div>
             <div class="box" id="box-25">box-25</div>
             <div class="box" id="box-26">box-26</div>
@@ -177,6 +293,9 @@
             <div class="box" id="box-35">box-35</div>
             <div class="box" id="box-36">box-36</div>
             <div class="box" id="box-37">box-37</div>
+            <div class="box" id="box-38">box-38</div>
+            <div class="box" id="box-39">box-39</div>
+            <div class="box" id="box-40">box-40</div> -->
         </div>
         <div class="payment-statement-section">
             <h1>Statement</h1>
@@ -184,6 +303,53 @@
     </div>
 
     <script src="./JAVASCRIPT/MyAccount.js"></script>
+    <script>
+        const progress = document.querySelector(".progress-done");
+        const input = document.querySelector(".input");
+        const maxInput = document.querySelector(".maxInput");
+
+        let finalvalue = 0;
+        let max = 0;
+
+        function changeWidth() {
+            progress.style.width = `${(finalvalue / max) * 100}%`;
+            progress.innerText = `${Math.ceil((finalvalue / max) * 100)}%`;
+        }
+
+        input.addEventListener("keyup", function () {
+            finalvalue = parseInt(input.value, 10);
+            changeWidth();
+        })
+        maxInput.addEventListener("keyup", function () {
+            max = parseInt(maxInput.value, 10);
+            changeWidth();
+        })
+    </script>
+    <script>
+        setTimeout(() => {
+            function createPopup(id) {
+                let popupNode = document.querySelector(id)
+                let overlay = popupNode.querySelector(".overlay");
+                let closebtn = popupNode.querySelector(".close-btn");
+                function openpopup() {
+                    popupNode.classList.add("active");
+                }
+                function closepopup() {
+                    popupNode.classList.remove("active");
+                }
+
+
+                overlay.addEventListener("click", closepopup);
+                closebtn.addEventListener("click", closepopup);
+                return openpopup;
+
+            }
+
+            let popup = createPopup("#popup");
+            document.querySelector("#open-popup").addEventListener("click", popup);
+        }, 1000);
+    </script>
 
 </body>
+
 </html>

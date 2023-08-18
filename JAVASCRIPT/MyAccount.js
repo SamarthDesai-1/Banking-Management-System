@@ -6,15 +6,25 @@ class CurrentDate {
     }
 }
 
-class DynamicProgressBar {
-    showProgress() {
+// class DynamicProgressBar {
+
+    function showProgress() {
+
+        let decodeCookie = decodeURIComponent(document.cookie);
+        let ca = decodeCookie.split(";");
+        let splitans = ca[0].split('=');
+        let ans = splitans[1];
+        let toINT = Number.parseInt(ans);
+
         let circularProgress = document.querySelector(".circular-progress") ,
         progressValue = document.querySelector(".progress-value");
     
         let progressStartValue = 0,
-            progressEndValue = 100,
+            progressEndValue = 61,
             speed = 50;
         
+        console.log(progressEndValue);     
+        console.log(toINT);     
         let progress = setInterval(() => {
             progressStartValue++;
 
@@ -32,11 +42,16 @@ class DynamicProgressBar {
         }, speed);
 
     }
-}
+
+// }
+
 
 const dateObj = new CurrentDate();
 dateObj.showDate();
 
-const progressObj = new DynamicProgressBar();
-progressObj.showProgress();
+// const progressObj = new DynamicProgressBar();
+// progressObj.showProgress();
+
+showProgress();
+
 
