@@ -159,10 +159,9 @@
 
                     <div class="form-section">
                         <label>Add Funds</label>
-                        <input type="number" name="af" id="">
-                        <br>                                                                                                                        
+                        <input type="number" name="af" id="" class="format-amount">
                         <label>Withdraw Funds</label>
-                        <input type="number" name="wf">
+                        <input type="number" name="wf" class="format-amount">
                     </div> 
                     <div class="btn-section">
                         <button type="submit" class="btn" name="afbtn">Add</button>
@@ -222,15 +221,153 @@
                 ?>
 
             </div>
+
             <div class="box" id="box-4">
                 <h1>Currency Convertor</h1>
+
+                <form method="post">
+                    <div class="curreny-convertor-section">
+                        <label>
+                            <h4>From : </h4>
+                        </label>
+                        <select name="" id="" class="drop">
+                            <option value="INR">Indian Rupee</option>
+                            <option value="USD">American Dollar</option>
+                            <option value="AUD">Australian Dollar</option>
+                            <option value="RSR">Russian Rubble</option>
+                            <option value="SGD">Singapore Dollar</option>
+                        </select>
+                        <label>
+                            <h4>To : </h4>
+                        </label>
+                        <select name="" id="" class="drop">
+                            <option value="INR">Indian Rupee</option>
+                            <option value="USD">American Dollar</option>
+                            <option value="AUD">Australian Dollar</option>
+                            <option value="RSR">Russian Rubble</option>
+                            <option value="SGD">Singapore Dollar</option>
+                        </select>
+                        <label>
+                            <h4>Amount : </h4>
+                        </label>
+                        <input type="number" name="" id="" class="format-amount">
+                        <button type="submit" class="con-btn">Convert</button>
+                    </div>
+                </form>
+
+
             </div>
+
             <div class="box" id="box-5">
                 <h1>Loan Statement</h1>
                 <p>Currently no loan found</p>
             </div>
-            <div class="box" id="box-6">box-6</div>
-            <div class="box" id="box-7">box-7</div>
+            
+            <div class="box" id="box-6">
+
+                <form method="post">
+                    <h1>Payment Section</h1>
+                    <div class="transfer-section">
+                        <button class="transfer-btn"><a href="Payment.php" class="links">Transfer Funds</a></button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="box" id="box-7">
+                <div class="edit-section">
+                    <!-- <h1>Policy Statement</h1> -->
+                    <h1>Edit Section</h1>
+                    <div class="transfer-section">
+                        <button class="transfer-btn" id="open-popup" onclick="createPopup(id)">Edit Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popup section -->
+            <div class="popup" id="popup">
+                <div class="overlay"></div>
+                <div class="popup-content">
+                    <div class="header-section">
+                        <h1>Your Account Details</h1>
+                    </div>
+
+                    <form method="post" class="popup-form-section">
+
+                        <div class="section-1">
+                            <div class="name-section">
+                                <label for=""><h4>First Name</h4></label>
+                                <input type="text" class="format popup-form-css" name="fname">
+                                <label for=""><h4>Middle Name</h4></label>
+                                <input type="text" class="format popup-form-css" name="mname">
+                                <label for=""><h4>Last Name</h4></label>
+                                <input type="text" class="format popup-form-css" name="lname">
+                            </div>
+                            <div class="currency-section">
+                                <tr>
+                                    <td class="text-format"><h2>Currency</h2></td>
+                                </tr>
+                                <tr>
+                                    <td class="format"><input type="radio" name="curr" value="USD">&nbsp;&nbsp;USD</td>
+                                    <td class="text-format"><input type="radio" name="curr" value="EUR">&nbsp;&nbsp;EUR</td>
+                                </tr>
+                            </div>
+                            <div class="account-type">
+                                <tr>
+                                    <td class="text-format"><h2>Type of Account</h2></td>
+                                    <td><select name="account" id="" class="select-menu">
+                                        <option value="Savings" class="option-menu">Savings</option>
+                                        <option value="Current" class="option-menu">Current</option>
+                                        <option value="Fixed" class="option-menu">Fixed</option>
+                                        <option value="Recurring" class="option-menu">Recurring</option>
+                                    </select></td>
+                                </tr>
+                            </div>    
+                        </div>
+
+                        <div class="section-2">
+                            <div class="contact-info">
+                                <tr>
+                                    <td class="text-format"><h2>Contact</h2></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-format"><h3>Mobile</h3></td>
+                                    <td><input type="text" class="format" maxlength="10" name="mobile"></td>
+                                </tr>
+                            </div>    
+                        </div>
+
+
+                        <div class="section-3">
+                            <tr>
+                                <td class="text-format"><h3>Nominee</h3></td>
+                                <td><input type="text" name="nominee" id="" class="format"></td>
+                            </tr>
+                            <tr>
+                                <td><h3>Address</h3></td>
+                                <td><textarea name="address" id="" cols="30" rows="10" class="items"></textarea></td>
+                            </tr>
+                            <div class="controls">
+                                <button class="close-btn">Close</button>
+                                <button type="submit" class="submit-btn" name="update">Save</button>
+                            </div>
+                        </div>
+
+
+
+                       
+
+                    </form>
+
+                    
+                </div>
+
+               
+
+
+            </div>
+            <!-- Popup section -->
+
             <div class="box" id="box-8">
                 <div class="dynamic-progress-bar">
                     <div class="circular-progress">
@@ -241,55 +378,180 @@
                 <div class="text-area-section">
                     <h1>Your transaction activities</h1>
                     <ul>
-                        <li><h4>Lorem ipsum dolor sit amet.</h4></li>
-                        <li><h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, nisi.</h4></li>
-                        <li><h4>Lorem ipsum dolor sit amet</h4></li>
+                        <li>
+                            <h4>Lorem ipsum dolor sit amet.</h4>
+                        </li>
+                        <li>
+                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, nisi.</h4>
+                        </li>
+                        <li>
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="box" id="box-9">box-9</div>
-            <div class="box" id="box-10">box-10</div>
-            <div class="box" id="box-11">box-11</div>
-            <div class="box" id="box-12">box-12</div>
-            <div class="box" id="box-13">box-13</div>
-            <div class="box" id="box-14">box-14</div>
-            <div class="box" id="box-15">box-15</div>
-            <div class="box" id="box-16">box-16</div>
-            <div class="box" id="box-17">box-17</div>
-            <div class="box" id="box-18">box-18</div>
-            <div class="box" id="box-19">box-19</div>
-            <div class="box" id="box-20">box-20</div>
-            <div class="box" id="box-21">box-21
-                <div class="payment-statement-section">
 
+            <div class="box" id="box-9">box-9
+                <div class="progress">
+                    <div class="progress-done">
+
+                    </div>
                 </div>
+
+                <div class="inputcontainer">
+                    <div>
+                        <h3>Value</h3>
+                        <input type="number" class="input">
+                    </div>
+                    <div>
+                        <h3>Max Value</h3>
+                        <input type="number" class="maxInput">
+                    </div>
+                </div>
+
             </div>
-            <div class="box" id="box-22">box-22</div>
-            <div class="box" id="box-23">
-                <h1>Cibil Score</h1>
-                
-            </div>
-            <div class="box" id="box-24">box-24</div>
-            <div class="box" id="box-25">box-25</div>
-            <div class="box" id="box-26">box-26</div>
-            <div class="box" id="box-27">box-27</div>
-            <div class="box" id="box-28">box-28</div>
-            <div class="box" id="box-29">box-29</div>
-            <div class="box" id="box-30">box-30</div>
-            <!-- <div class="box" id="box-31">box-31</div>
-            <div class="box" id="box-32">box-32</div>
-            <div class="box" id="box-33">box-33</div>
-            <div class="box" id="box-34">box-34</div>
-            <div class="box" id="box-35">box-35</div>
-            <div class="box" id="box-36">box-36</div>
-            <div class="box" id="box-37">box-37</div> -->
+            <div class="box" id="box-10">box-10</div>
+            <!-- <div class="box" id="box-11">box-11</div>
+            <div class="box" id="box-12">box-12</div>
+            <div class="box" id="box-13">box-13</div> -->
+            <div class="box" id="box-14">box-14</div>
+            <!-- <div class="box" id="box-15">box-15</div>
+            <div class="box" id="box-16">box-16</div>
+            <div class="box" id="box-17">box-17</div> -->
+            <div class="box" id="box-18">box-18</div>
+           
+          
         </div>
         <div class="payment-statement-section">
             <h1>Statement</h1>
+
+            <div class="account-statement-section">
+
+                <table class="main-table">
+                    <div class="table-head-section">
+                        <tr>
+                            <td class="inner-data table-data">ID</td>
+                            <td class="inner-data table-data">Email</td>
+                            <td class="inner-data table-data">Sender Account NO</td>
+                            <td class="inner-data table-data">Recevier Account NO</td>
+                            <td class="inner-data table-data">Fund</td>
+                        </tr>
+                    </div>
+                  
+                    <?php
+                    
+                        $con = mysqli_connect("localhost" ,"root" ,"" ,"payment_db");
+                        $sql = "select * from paymentinfo where ID = '$pin'";
+                        $rows = mysqli_query($con ,$sql);
+
+                        while ($result = mysqli_fetch_array($rows)) 
+                        {
+
+                    ?>
+                            <tr>
+                                <td class="inner-data"><?php echo $result['ID']; ?></td>
+                                <td class="inner-data"><?php echo $result['Email']; ?></td>
+                                <td class="inner-data"><?php echo $result['SenderAccountNo']; ?></td>
+                                <td class="inner-data"><?php echo $result['RecevierAccountNo']; ?></td>
+                                <td class="inner-data"><?php echo $result['Fund']; ?></td>
+                            </tr>
+                    <?php
+                            
+
+                        }
+
+                    ?>
+                </table>
+
+            </div>
+
+
         </div>
     </div>
 
-    <script src="/COLLEGE MINI PROJECT/JAVASCRIPT/MyAccount.js"></script>
+    <!-- <script src="/COLLEGE MINI PROJECT/JAVASCRIPT/MyAccount.js"></script> -->
+    <script>
+        function createPopup(id) {
+            let popupNode = document.querySelector(id)
+            let overlay = popupNode.querySelector(".overlay");
+            let closebtn = popupNode.querySelector(".close-btn");
+            function openpopup() {
+                popupNode.classList.add("active");
+            }
+            function closepopup() {
+                popupNode.classList.remove("active");
+            }
+
+
+            overlay.addEventListener("click", closepopup);
+            closebtn.addEventListener("click", closepopup);
+            return openpopup;
+
+        }
+
+        let popup = createPopup("#popup");
+        document.querySelector("#open-popup").addEventListener("click", popup);
+    </script>
+
 
 </body>
 </html>
+
+
+
+ <!-- Update Data -->
+ <?php
+
+    $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
+    $sql = "select * from accountinfo where ID = '$pin'";
+    $rows = mysqli_query($con ,$sql);
+    $result = mysqli_fetch_array($rows);
+
+    if (isset($_POST['update'])) {
+
+        $firstname = $_POST['fname'];
+        $middlename = $_POST['mname'];
+        $lastname = $_POST['lname'];
+        $currency = $_POST['curr'];
+        $accounttype = $_POST['account'];
+        $mobile = $_POST['mobile'];
+        $nominee = $_POST['nominee'];
+        $address = $_POST['address'];
+
+        $update = new Database();
+        if ($firstname != "") {
+            $sql = "update accountinfo set Firstname = '$firstname' where ID = '$pin'";
+            $update->update("accountopen_db" ,$sql);       
+        }
+        if ($middlename != "") {
+            $sql = "update accountinfo set Middlename = '$middlename' where ID = '$pin'";
+            $update->update("accountopen_db" ,$sql);  
+        }
+        if ($lastname != "") {
+            $sql = "update accountinfo set Lastname = '$lastname' where ID = '$pin'";
+            $update->update("accountopen_db" ,$sql);  
+        }
+        if ($currency != "") {
+            $sql = "update accountinfo set Currency = '$currency' where ID = '$pin'";
+            $update->update("accountopen_db" ,$sql);  
+        }
+        if ($accounttype != "") {
+            $sql = "update accountinfo set AccountType = '$accounttype' where ID = '$pin'";
+            $update->update("accountopen_db" ,$sql);  
+        }
+        if ($mobile != "") {
+            $sql = "update accountinfo set Mobile = '$Mobile' where ID = '$pin'";
+            $update->update("accountopen_db" ,$sql);  
+        }
+        if ($nominee != "") {
+            $sql = "update accountinfo set Nominee = '$nominee' where ID = '$pin'";
+            $update->update("accountopen_db" ,$sql);  
+        }
+        if ($address != "") {
+            $sql = "update accountinfo set Address = '$address' where ID = '$pin'";
+            $update->update("accountopen_db" ,$sql);  
+        }
+    }
+
+?>
+<!-- Update Data -->

@@ -57,70 +57,70 @@
         max-width: 1180px;
         display: grid;
         margin-top: 20px;
-        row-gap: 10px;
-        column-gap: 10px;
+        row-gap: 25px;
+        column-gap: 25px;
         grid-template-columns: 200px 200px 200px 200px 200px;
         justify-content: center;
 
     }
     .box {
         border: 2px solid green;
-        padding: 12px;
+        padding: 15px 20px;
     }
     #box-1 {
-        background-color: #4895ef;
         grid-row: span 1;
         grid-column: span 3;
         padding: 20px 20px;
-        border: 2px solid black;
-        color: white;
-
-        box-shadow: 0px 0px 20px #d2d2d2;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #d2d2d2;
     }
     #box-2 {
-        background-color: #4361ee;
+        box-shadow: 0px 0px 10px #d2d2d2;
         grid-column: span 2;
         padding: 20px 20px;
-        border: 2px solid black;
-        color: white
+        border-radius: 8px;
+
     }
     #box-3 {
-        background-color: #4895ef;
-        color: white;
-        border: 2px solid black;
+        box-shadow: 0px 0px 10px #d2d2d2;
         grid-row: span 1;
         grid-column: span 2;
+        border-radius: 8px;
+
     }
     #box-4 {
-        background-color: #4895ef;
-        color: white;
-        border: 2px solid black;
         grid-column: span 3;
         grid-row: span 3;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #d2d2d2;
+
 
     }
     #box-5 {
-        background-color: #4361ee;
-        color: white;
-        border: 2px solid black;
         grid-column: span 2;
         grid-row: span 2;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #d2d2d2;
     }
     #box-6 {
         grid-row: span 3;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #d2d2d2;
     }
     #box-7 {
         grid-row: span 3;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #d2d2d2;
     }
 
     #box-8 {
-        background-color: #4895ef;
-        color: white;
         grid-column: span 3;
         grid-row: span 5; /* span 7 before */
         display: flex;
         gap: 20px;
         align-items: center;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #d2d2d2;
     }
     #box-9 {
         grid-column: span 2;
@@ -146,7 +146,6 @@
         border-radius: 8px;
         width: 300px;
         padding: 20px;
-        box-shadow: 0px 0px 30px #ededed;
         z-index: 1;
     }
     .circular-progress {
@@ -197,28 +196,32 @@
 }
 
 .form-section {
-    border: 2px solid black;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
 }
 .format {
-    max-width: 250px;
     padding: 10px 20px;
     outline: none;
     font-weight: bold;
+    border: none;
+    border-bottom: 2px solid black;
 
 }
 .btn {
     min-width: 123px;
-    padding: 5px 20px;
+    padding: 10px 20px;
+    color: white;
     font-weight: bold;
     font-size: 1rem;
-    border: 2px solid #4361ee;
     cursor: pointer;
+    border-radius: 5px;
+    border: none;
+   
+    background: linear-gradient(to top right ,#4361ee ,#7d2ae8);
 }
 .drop {
-    min-width: 250px;
+    min-width: 400px;
     padding: 10px 20px;
 }
 .curreny-convertor-section {
@@ -232,16 +235,26 @@
     min-width: 250px;
     padding: 10px 20px;
     outline: none;
+    font-weight: bold;
+    font-size: 1rem;
 
 }
 .con-btn {
     max-width: 100px;
     padding: 10px 20px;
     cursor: pointer;
+    margin-block: 5px;
+    background: linear-gradient(to top right ,#4361ee ,#7d2ae8);
+    font-weight: bold;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px;
 }
 .btn-section {
-    border: 1px solid black;
-    margin-block: 10px;
+    display: flex;
+    column-gap: 10px;
+    margin-block: 15px;
 }
 
 .transfer-btn {
@@ -308,6 +321,7 @@
 }
 .inputContainer {
     display: flex;
+    flex-direction: column;
     width: 50%;
     justify-content: space-evenly;
 }
@@ -470,10 +484,12 @@
 .select-menu {
     padding: 10px 20px;
     min-width: 200px;
+
 }
 .popup-form-section {
     display: flex;
     border-radius: 5px;
+    flex-direction: column;
 }
 
 .section-3 {
@@ -487,6 +503,8 @@
 .section-3 .items {
     font-weight: bold;
     padding: 10px 20px;
+    outline: none;
+    border-radius: 8px;
 }
 .section-3 {
     display: flex;
@@ -498,4 +516,23 @@
 .links {
     color: white;
     text-decoration: none;
+}
+
+.format-amount-section {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.inner-data {
+    padding: 10px 20px;
+}
+.main-table {
+    min-width: 1180px;
+}
+.table-data {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.payment-statement-section h1 {
+    margin-block: 10px;
 }
