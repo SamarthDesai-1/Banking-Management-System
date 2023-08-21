@@ -223,7 +223,11 @@
             </div>
 
             <div class="box" id="box-4">
-                <h1>Currency Convertor</h1>
+                
+                <div class="heading-section">
+                    <h1>Currency Convertor</h1>
+                </div>
+               
 
                 <form method="post">
                     <div class="curreny-convertor-section">
@@ -251,7 +255,15 @@
                             <h4>Amount : </h4>
                         </label>
                         <input type="number" name="" id="" class="format-amount">
-                        <button type="submit" class="con-btn">Convert</button>
+                        <button type="button" class="con-btn">Convert</button>
+
+                        <div class="output-section">
+                            <?php
+                            
+                                echo "Success";
+                            
+                            ?>
+                        </div>
                     </div>
                 </form>
 
@@ -285,86 +297,109 @@
             </div>
 
             <!-- Popup section -->
-            <div class="popup" id="popup">
-                <div class="overlay"></div>
-                <div class="popup-content">
-                    <div class="header-section">
-                        <h1>Your Account Details</h1>
-                    </div>
+            
+        <div class="popup" id="popup">
+            <div class="overlay"></div>
+            <div class="popup-content">
+                <div class="header-section">
+                    <h1>Your Account Details</h1>
+                </div>
 
-                    <form method="post" class="popup-form-section">
+                <div class="spacer"></div>
 
-                        <div class="section-1">
-                            <div class="name-section">
-                                <label for=""><h4>First Name</h4></label>
-                                <input type="text" class="format popup-form-css" name="fname">
-                                <label for=""><h4>Middle Name</h4></label>
-                                <input type="text" class="format popup-form-css" name="mname">
-                                <label for=""><h4>Last Name</h4></label>
-                                <input type="text" class="format popup-form-css" name="lname">
-                            </div>
-                            <div class="currency-section">
-                                <tr>
-                                    <td class="text-format"><h2>Currency</h2></td>
-                                </tr>
-                                <tr>
-                                    <td class="format"><input type="radio" name="curr" value="USD">&nbsp;&nbsp;USD</td>
-                                    <td class="text-format"><input type="radio" name="curr" value="EUR">&nbsp;&nbsp;EUR</td>
-                                </tr>
-                            </div>
-                            <div class="account-type">
-                                <tr>
-                                    <td class="text-format"><h2>Type of Account</h2></td>
-                                    <td><select name="account" id="" class="select-menu">
+
+                <form method="post" class="popup-form-section">
+
+                    <div class="section-1">
+                        <div class="name-section">
+                            <label for="">
+                                <h4>First Name</h4>
+                            </label>
+                            <input type="text" class="format popup-form-css" name="fname">
+                            <label for="">
+                                <h4>Middle Name</h4>
+                            </label>
+                            <input type="text" class="format popup-form-css" name="mname">
+                            <label for="">
+                                <h4>Last Name</h4>
+                            </label>
+                            <input type="text" class="format popup-form-css" name="lname">
+                        </div>
+
+                        <div class="currency-section">
+                            <tr>
+                                <td class="text-format">
+                                    <h2>Currency</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="format"><input type="radio" name="curr" value="USD">&nbsp;&nbsp;USD</td>
+                                <td class="text-format"><input type="radio" name="curr" value="EUR">&nbsp;&nbsp;EUR
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="account-type">
+                            <tr>
+                                <td class="text-format">
+                                    <h2>Type of Account</h2>
+                                </td>
+                                <td><select name="account" id="" class="select-menu">
                                         <option value="Savings" class="option-menu">Savings</option>
                                         <option value="Current" class="option-menu">Current</option>
                                         <option value="Fixed" class="option-menu">Fixed</option>
                                         <option value="Recurring" class="option-menu">Recurring</option>
                                     </select></td>
-                                </tr>
-                            </div>    
+                            </tr>
                         </div>
+                    </div>
 
-                        <div class="section-2">
-                            <div class="contact-info">
-                                <tr>
-                                    <td class="text-format"><h2>Contact</h2></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-format"><h3>Mobile</h3></td>
-                                    <td><input type="text" class="format" maxlength="10" name="mobile"></td>
-                                </tr>
-                            </div>    
+                    <div class="section-2">
+                        <div class="contact-info">
+                            <tr>
+                                <td class="text-format">
+                                    <h2>Contact</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-format">
+                                    <h3>Mobile</h3>
+                                </td>
+                                <td><input type="text" class="format" maxlength="10" name="mobile"></td>
+                            </tr>
                         </div>
-
 
                         <div class="section-3">
-                            <tr>
-                                <td class="text-format"><h3>Nominee</h3></td>
-                                <td><input type="text" name="nominee" id="" class="format"></td>
-                            </tr>
-                            <tr>
-                                <td><h3>Address</h3></td>
-                                <td><textarea name="address" id="" cols="30" rows="10" class="items"></textarea></td>
-                            </tr>
-                            <div class="controls">
-                                <button class="close-btn">Close</button>
-                                <button type="submit" class="submit-btn" name="update">Save</button>
+                            <div class="nominee-section">
+                                <tr>
+                                    <td class="text-format">
+                                        <h3 class="big-font">Nominee</h3>
+                                    </td>
+                                    <td><input type="text" name="nominee" id="" class="format"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3 class="big-font">Address</h3>
+                                    </td>
+                                    <td><textarea name="address" id="" cols="50" rows="8" class="items"></textarea></td>
+                                </tr>
+                                <!-- <div class="controls">
+                                        <button class="close-btn">Close</button>
+                                        <button type="submit" class="submit-btn" name="update">Save</button>
+                                    </div> -->
                             </div>
+
                         </div>
 
+                    </div>
 
 
-                       
+                </form>
 
-                    </form>
-
-                    
+                    <div class="controls">
+                        <button class="close-btn">Close</button>
+                        <button class="submit-btn">Submit</button>
+                    </div>
                 </div>
-
-               
-
-
             </div>
             <!-- Popup section -->
 
@@ -373,7 +408,7 @@
                     <div class="circular-progress">
                         <div class="progress-value">0%</div>
                     </div>
-                    <span class="text">Account Verification</span>
+                    <!-- <span class="text">Account Verification</span> -->
                 </div>
                 <div class="text-area-section">
                     <h1>Your transaction activities</h1>
@@ -392,7 +427,61 @@
             </div>
 
             <div class="box" id="box-9">box-9
-                <div class="progress">
+                <form method="post" class="cvv-form-section">
+
+                    <div class="header-section">
+                        <h1>CVV</h1>
+                    </div>
+                    <div class="input-section">
+                        <h3>Set 5 digit CVV</h3>
+                        <input type="password" id="" class="cvv-format" maxlength="5" name="cvv">
+                        <h3>Confirm your CVV</h3>
+                        <input type="password" id="" class="cvv-format" maxlength="5" name="concvv">
+                    </div>
+
+                    <div class="cvv-button-section">
+                        <input type="submit" value="Update" class="cvv-btn" name="cvvbtn">
+                        <input type="submit" value="Set PIN" class="cvv-btn" name="cvvbtn">
+                    </div>
+
+                </form>
+
+                <?php
+
+                    if (isset($_POST['cvvbtn'])) {
+
+                        $cvv = $_POST['cvv'];
+                        $concvv = $_POST['concvv'];
+
+                        $create = new Database();
+                        $create->db("cvv_db");
+
+                        $table = new Database();
+                        $sql = "create table cvvinfo(ID int primary key ,CVV varchar(5) ,Email varchar(30))";
+                        $table->createTable("cvv_db" ,$sql);
+
+                        if ($cvv != "" && $concvv != "") {
+                            if ($cvv === $concvv) {
+                                $insert = new Database();
+                                $sql = "insert into cvvinfo(ID ,CVV ,Email) values('$pin' ,'$cvv' ,'$email')";
+                                $insert->insertTable("cvv_db" ,$sql);
+                            }
+                            else {
+                                ?>
+                                    <script>alert("Retype cvv")</script>
+                                <?php
+                            }
+                        }  
+
+                    }
+                    
+                ?>
+
+
+            </div>
+
+            <div class="box" id="box-10">box-10
+            <div class="progress">
                     <div class="progress-done">
 
                     </div>
@@ -408,9 +497,7 @@
                         <input type="number" class="maxInput">
                     </div>
                 </div>
-
             </div>
-            <div class="box" id="box-10">box-10</div>
             <!-- <div class="box" id="box-11">box-11</div>
             <div class="box" id="box-12">box-12</div>
             <div class="box" id="box-13">box-13</div> -->
@@ -422,6 +509,7 @@
            
           
         </div>
+
         <div class="payment-statement-section">
             <h1>Statement</h1>
 
@@ -469,8 +557,8 @@
         </div>
     </div>
 
-    <!-- <script src="/COLLEGE MINI PROJECT/JAVASCRIPT/MyAccount.js"></script> -->
-    <script>
+    <script src="/COLLEGE MINI PROJECT/JAVASCRIPT/MyAccount.js"></script>
+   <script>
         function createPopup(id) {
             let popupNode = document.querySelector(id)
             let overlay = popupNode.querySelector(".overlay");
@@ -483,7 +571,7 @@
             }
 
 
-            overlay.addEventListener("click", closepopup);
+            overlay.addEventListener("clicl", closepopup);
             closebtn.addEventListener("click", closepopup);
             return openpopup;
 
@@ -492,6 +580,7 @@
         let popup = createPopup("#popup");
         document.querySelector("#open-popup").addEventListener("click", popup);
     </script>
+
 
 
 </body>

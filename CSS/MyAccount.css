@@ -123,6 +123,8 @@
         box-shadow: 0px 0px 10px #d2d2d2;
     }
     #box-9 {
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #d2d2d2;
         grid-column: span 2;
         grid-row: span 5;
     }
@@ -150,8 +152,8 @@
     }
     .circular-progress {
         position: relative;
-        height: 240px;
-        width: 240px;
+        height: 250px;
+        width: 250px;
         background-color: #f0ff;
         border-radius: 50%;
         background: conic-gradient(#7d2ae8 ,3.6deg ,#ededed 0deg); 
@@ -223,13 +225,21 @@
 .drop {
     min-width: 400px;
     padding: 10px 20px;
+    border: none;
+    border-bottom: 2px solid black;
 }
 .curreny-convertor-section {
     border: 2px solid black;
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    max-width: 480px;
     row-gap: 10px;
+    margin-inline: auto;
+}
+.heading-section {
+    display: flex;
+    row-gap: 10px;
+
 }
 .format-amount {
     min-width: 250px;
@@ -331,17 +341,13 @@
 
 
 
-
-
-
-
-
 .center {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50% ,-50%);
+    transform: translate(-50%, -50%);
 }
+
 .popup {
     position: fixed;
     top: 100vh;
@@ -350,52 +356,59 @@
     height: 100%;
     z-index: 2;
 }
+
 .popup-content {
     box-shadow: 0px 0px 20px #d2d4d6;
 }
+
 .popup .overlay {
     position: absolute;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0,0,5);
+    background: rgba(0, 0, 0, 0, 0, 5);
     opacity: 0;
 
     transition: opacity 100ms ease-in-out 200ms;
 }
+
 .popup .popup-content {
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50% ,-50%) scale(1.15);
+    transform: translate(-50%, -50%) scale(1.15);
     opacity: 0;
     width: 95%;
     max-width: 1000px;
     background-color: #fff;
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 0px 2px 2px 5px(0,0,0,0,05);
+    box-shadow: 0px 2px 2px 5px(0, 0, 0, 0, 05);
     transition: all 300ms ease-in-out;
 }
+
 .popup .popup-content h2 {
     margin: 10px 0px;
     font-size: 25px;
     color: #111;
     text-align: center;
 }
+
 .popup .popup-content p {
     margin: 15px 0px;
     color: #222;
     font-size: 16px;
     text-align: center;
 }
+
 .popup .popup-content .controls {
     display: flex;
     justify-content: space-between;
     margin: 20px 0px 0px;
-    
+
 }
+
 .popup .popup-content .controls button {
     padding: 10px 20px;
     border: none;
@@ -404,112 +417,127 @@
     border-radius: 20px;
     cursor: pointer;
 }
+
 .popup .popup-content .controls .close-btn {
     background: transparent;
     color: #3284ed;
 
 }
+
 .popup .popup-content .controls .submit-btn {
     background: #3284ed;
     color: #fff;
 }
+
 .popup.active {
     top: 0px;
     transition: top 0ms ease-in-out 0ms;
-    
+
 }
+
 .popup.active .overlay {
     opacity: 1;
     transition: all 300ms ease-in-out;
 }
+
 .popup.active .popup-content {
-    transform: translate(-50% ,-50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
 
 .popup-content p {
     display: flex;
-    justify-content: center ;
+    justify-content: center;
 }
 
 
 
 
-
-
-
-
-
-
+.format {
+    padding: 0px 20px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 1rem;
+    font-weight: bold;
+}
 
 .name-section {
+    min-width: 350px;
     display: flex;
     flex-direction: column;
-    /* border: 1px solid black; */
-    max-width: 250px;
-    padding: 10px 20px;
-    row-gap: 8px;
+    row-gap: 5px;
 }
-.popup-form-css {
-    outline: none;
+
+.section-1 {
+    display: flex;
+    column-gap: 5%;
 
 }
+
+.section-2 {
+    display: flex;
+    margin-block: auto;
+    justify-content: space-evenly;
+}
+
+.section-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+.nominee-section {
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+}
+
 .currency-section {
-    /* border: 1px solid black; */
-    max-width: 250px;
-    padding: 10px 20px;
-    row-gap: 10px;
-    margin-block: 5px;
-
+    padding: 15px 20px;
+    min-width: 200px;
 }
-.account-type {
-    /* border: 1px solid black; */
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
 
-}
 .contact-info {
-    /* border: 1px solid black; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    row-gap: 10px;
+    max-width: 350px;
+    margin-block: auto;
+}
+
+.account-type {}
+
+.select-menu {
     min-width: 300px;
     padding: 10px 20px;
-    min-height: 300px;
-    
-}
-.select-menu {
-    padding: 10px 20px;
-    min-width: 200px;
-
-}
-.popup-form-section {
-    display: flex;
-    border-radius: 5px;
-    flex-direction: column;
 }
 
-.section-3 {
-    /* border: 1px solid black; */
-    display: flex;
-    flex-direction: column;
-    min-width: 400px;
-    padding: 10px 20px;
-    
-}
-.section-3 .items {
-    font-weight: bold;
+.popup-form-section {}
+
+.items {
     padding: 10px 20px;
     outline: none;
-    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
 }
-.section-3 {
-    display: flex;
-    row-gap: 10px;
+
+.big-font {
+    font-size: 1.3rem;
 }
+
+.spacer {
+    margin-block: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .header-section {
     margin-block: 5px;
 }
@@ -535,4 +563,43 @@
 }
 .payment-statement-section h1 {
     margin-block: 10px;
+}
+
+
+
+/* start work from here */
+.cvv-format {
+    border: none;   
+    border-bottom: 2px solid black;
+    outline: none;
+    letter-spacing: 10px;
+    text-align: center;
+    display: flex;
+    font-size: 1.2rem;
+    padding: 5px 20px;
+}
+.input-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    max-width: 270px;
+
+}
+
+.cvv-button-section {
+    display: flex;
+    justify-content: end;
+    column-gap: 10px;
+    flex-direction: row;
+    margin: 10px 0px;
+}
+.cvv-btn {
+    background: linear-gradient(to top right ,#4361ee ,#7d2ae8);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
