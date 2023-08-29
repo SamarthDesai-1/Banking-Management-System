@@ -61,92 +61,10 @@
                                 // }
                     ?>
 
-                    <li class="btn primary">Payments</li>
-                    <li class="link hover-links">Cards
-                        <div class="megamenu">
-                            <div class="megamenu-items">
-                                <h3>TOP LINKS</h3>
-                                <ul>
-                                    <li>View All Cards</li>
-                                    <li>Credit Cards</li>
-                                    <li>Charge Cards</li>
-                                    <li>Cardmember Benefits</li>
-                                </ul>
-                            </div>
-                            <div class="megamenu-items">
-                                <h3>GET CARDS</h3>
-                                <ul>
-                                    <li>Premium Cards</li>
-                                    <li>Travel Cards</li>
-                                    <li>Rewards Cards</li>
-                                    <li>Corporate Cards</li>
-                                    <li>Add Someone to Your Account</li>
-                                </ul>
-                            </div>
-                            <div class="megamenu-items">
-                                <h3>MANAGE MY CARDS </h3>
-                                <ul>
-                                    <li>View My Card Activity</li>
-                                    <li>Check my Spending Power</li>
-                                    <li>Pay My Card Bill</li>
-                                    <li>Replace or Track my Card</li>
-                                    <li>Manage my Card</li>
-                                </ul>
-                            </div>
-                            <div class="megamenu-items">
-                                <h3>HELP WITH MY CARD</h3>
-                                <ul>
-                                    <li>What are the annual fees that I need to pay ?</li>
-                                    <li>How do report a lost stolen or damage Card ?</li>
-                                    <li>How can I enroll for EMI ?</li>
-                                    <li>View all FAQs</li>
-                                </ul>
-                            </div>
-                            <div class="footer">
-                                <p class="black-font">Not currently a Cardmember ? Check out Insurance for <a href="">Non-Cardmembers.</a></p>
-                            </div>
-                        </div>
-                    </li>
-                   <li class="link"><a href="ContactUs.html" class="link-tag hover-links">Contact us</a></li>
-                    <li class="link hover-links">Insurance
-                        <div class="megamenu">
-                            <div class="megamenu-items">
-                                <h3>TOP LINKS</h3>
-                                <ul>
-                                    <li>Insurance Homepage</li>
-                                </ul>
-                            </div>
-                            <div class="megamenu-items">
-                                <h3>INSURE MYSELF</h3>
-                                <ul>
-                                    <li>Health Insurance</li>
-                                    <li>Personal Accident Insurance</li>
-                                    <li>Life Insurance</li>
-                                    <li>Critical Illness Insurance</li>
-                                    <li>Travel Insurance</li>
-                                </ul>
-                            </div>
-                            <div class="megamenu-items">
-                                <h3>INSURE MY POSSESSIONS</h3>
-                                <ul>
-                                    <li>Car Insurance</li>
-                                    <li>Two Wheeler Insurance</li>
-                                    <li>Home Insurance</li>
-                                </ul>
-                            </div>
-                            <div class="megamenu-items">
-                                <h3>HELP WITH INSURANCE</h3>
-                                <ul>
-                                    <li>How do I make an insurance claim ?</li>
-                                    <li>Do I need to be a cardmember to purchase insurance ?</li>
-                                    <li>View all FAQs</li>
-                                </ul>
-                            </div>
-                            <div class="footer">
-                                <p class="black-font">Not currently a Cardmember ? Check out Insurance for <a href="">Non-Cardmembers.</a></p>
-                            </div>
-                        </div>
-                    </li>
+                    <li class="btn primary">Explore</li>
+                    <li class="link hover-links">Cards</li>
+                    <li class="link"><a href="ContactUs.html" class="link-tag hover-links">Contact us</a></li>
+                    <li class="link hover-links">Insurance</li>
                     <li class="link hover-links">Help ?</li>
 
                     <form method="post">
@@ -170,10 +88,12 @@
     <!-- About section -->
     <div class="container">
         <div class="box-1">
-            <img src="/COLLEGE MINI PROJECT/IMAGES/american3.png" alt="" class="company-img">
             <div class="content-box-1">
+                <div class="title-section">
+                    <h1>American Express.</h1>
+                </div>
                 <h1>World's fastest growing bank.</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident possimus numquam iure debitis a tenetur modi omnis reiciendis, animi natus!</p><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident possimus numquam iure debitis a tenetur modi omnis reiciendis, animi natus! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laboriosam rerum rem, officiis vel numquam optio? Esse a illum autem sit consequuntur dolorem. Facere, beatae doloremque tempore praesentium soluta animi.</p><br>
                 <div class="auto-type-setting">
                     <span class="auto-type"></span>
                 </div>
@@ -364,4 +284,5 @@
     
 </body>
 </html>
+
 

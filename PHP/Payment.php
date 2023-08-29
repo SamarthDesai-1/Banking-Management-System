@@ -89,6 +89,7 @@
 
     $pin = $_SESSION['pin'];
     $email = $_SESSION['email'];
+    $date = date("d-m-Y");
 
 
     $con = mysqli_connect("localhost" ,"root" ,"" ,"customerbankdetails_db");
@@ -103,7 +104,7 @@
         $create->db("payment_db");
 
         $table = new Database();
-        $sql = "create table paymentinfo(ID varchar(10) ,Email varchar(30) ,SenderAccountNo varchar(30) ,RecevierAccountNo varchar(30) ,Fund varchar(20))";
+        $sql = "create table paymentinfo(ID int ,Date varchar(10) ,Email varchar(30) ,SenderName varchar(20) ,SenderAccountNo varchar(30) ,RecevierName varchar(20) ,RecevierAccountNo varchar(30) ,Fund varchar(20))";
         $table->createTable("payment_db" ,$sql);
 
         $sender = $_POST['sender'];
@@ -120,71 +121,110 @@
             // } else {
             //     header("location:Login.php");
             // }
+            
+            // fetching CVV data on particular PIN
+            $con = mysqli_connect("localhost" ,"root" ,"" ,"cvv_db");
+            $sql = "select * from cvvinfo where ID = '$pin'";
+            $rows = mysqli_query($con ,$sql);
+            $info = mysqli_fetch_array($rows);
+            
+            $cvvDATA = $info['CVV'];
 
-            if ($sender === $result['AccountNo']) {
+            if ($sender === $result['AccountNo'] && $cvvDATA === $cvv) {
 
-                $insert = new Database();
-                $sql = "insert into paymentinfo(ID ,Email ,SenderAccountNo ,RecevierAccountNo ,Fund) values('$pin' ,'$email' ,'$sender' ,'$recevier' ,'$fund')";
-                $insert->insertTable("payment_db" ,$sql);
+                $oldBalance = $result['CurrentBalance'];
+                if ($fund <= $oldBalance) {
 
-                class UpdateBalances {
+                    // fetching account information of sender
+                    $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
+                    $sql = "select * from accountinfo where ID = '$pin'";
+                    $rows = mysqli_query($con ,$sql);
+                    $resultACCOUNT = mysqli_fetch_array($rows);
+                         
+                    $senderFULLNAME =  $resultACCOUNT['Firstname']." ".$resultACCOUNT['Middlename'];
+ 
+                         
+                    // fetching account information of recevier
+                    $con = mysqli_connect("localhost" ,"root" ,"" ,"customerbankdetails_db");
+                    $sql = "select * from customerinfo where AccountNo = '$recevier'";
+                    $recevierEMAIL = mysqli_query($con ,$sql);
+                    $recevierEmailArray = mysqli_fetch_array($recevierEMAIL); 
+ 
+                    $RECEVIEREMAIL = $recevierEmailArray['Email'];
+ 
+                    $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
+                    $sql = "select * from accountinfo where Email = '$RECEVIEREMAIL'";
+                    $recevierNAME = mysqli_query($con ,$sql);
+ 
+                    $recevierNameArray =  mysqli_fetch_array($recevierNAME);
+                         
+                         
+                    $recevierFULLNAME = $recevierNameArray['Firstname']." ".$recevierNameArray['Middlename'];
+ 
+ 
+                    $insert = new Database();
+                    $sql = "insert into paymentinfo(ID ,Date ,Email ,SenderName ,SenderAccountNo ,RecevierName ,RecevierAccountNo ,Fund) values('$pin' ,'$date' ,'$email' ,'$senderFULLNAME' ,'$sender' ,'$recevierFULLNAME' ,'$recevier' ,'$fund')";
+                    $insert->insertTable("payment_db" ,$sql);
+ 
+ 
+                     class UpdateBalances {
 
-                    function updateSenderBalance($fund ,$pin ,$result) {
-
-                        $oldBalance = $result['CurrentBalance'];
-
-                        // check for funds are avaliable
-                        if ($fund <= $oldBalance) {
-
+                        function updateSenderBalance($fund ,$pin ,$result) {
+    
+                            $oldBalance = $result['CurrentBalance'];
+    
                             $newBalance = $oldBalance - $fund;
-
+    
                             $update = new Database();
                             $sql = "update customerinfo set CurrentBalance = '$newBalance' where ID = '$pin'";
                             $update->update("customerbankdetails_db" ,$sql);
-
+    
+                            
+    
                         }
-                        else {
-                            ?>
-
-                                <script>alert("You have not enough in your account for transfer.. Sorry")</script>
-
-                            <?php
+    
+                        function updateRecevierBalance($fund ,$recevier) {
+    
+                            $con = mysqli_connect("localhost" ,"root" ,"" ,"customerbankdetails_db");
+                            $sql = "select * from customerinfo where AccountNo = '$recevier'";
+                            $rows = mysqli_query($con  ,$sql);
+    
+                            $result = mysqli_fetch_array($rows);
+    
+                            $oldBalance = $result['CurrentBalance'];
+                            $newBalance = $oldBalance + $fund;
+    
+                            $update = new Database();
+                            $sql = "update customerinfo set CurrentBalance = $newBalance where AccountNo = '$recevier'";
+                            $update->update("customerbankdetails_db" ,$sql);
+    
+    
                         }
-
-
+    
                     }
+                    $updateSENDERBALANCE = new UpdateBalances();
+                    $updateSENDERBALANCE->updateSenderBalance($fund ,$pin ,$result);
+     
+                    $updateRECEVIERBALANCE = new UpdateBalances();
+                    $updateRECEVIERBALANCE->updateRecevierBalance($fund ,$recevier);
 
-                    function updateRecevierBalance($fund ,$recevier) {
+                    header("location:MyAccount.php");
+                   
+                }
+                else {
 
-                        $con = mysqli_connect("localhost" ,"root" ,"" ,"customerbankdetails_db");
-                        $sql = "select * from customerinfo where AccountNo = '$recevier'";
-                        $rows = mysqli_query($con  ,$sql);
-
-                        $result = mysqli_fetch_array($rows);
-
-                        $oldBalance = $result['CurrentBalance'];
-                        $newBalance = $oldBalance + $fund;
-
-                        $update = new Database();
-                        $sql = "update customerinfo set CurrentBalance = $newBalance where AccountNo = '$recevier'";
-                        $update->update("customerbankdetails_db" ,$sql);
-
-
-                    }
+                    ?> 
+                        <script>alert("You have not enough in your account for transfer.. Sorry")</script>
+                    <?php
+                   
 
                 }
-
-                $updateSENDERBALANCE = new UpdateBalances();
-                $updateSENDERBALANCE->updateSenderBalance($fund ,$pin ,$result);
-
-                $updateRECEVIERBALANCE = new UpdateBalances();
-                $updateRECEVIERBALANCE->updateRecevierBalance($fund ,$recevier);
-
+                    
             }
             else {
                 ?>
 
-                    <script>alert("Your account no is wrong please retype it")</script>
+                    <script>alert("Your account no and cvv is wrong please retype it")</script>
 
                 <?php
             }

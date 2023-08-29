@@ -17,8 +17,8 @@
                 <h1>Welcome to AMEX</h1>
                 
                 <form class="inner-form" method="post">
-                    <input type="email" placeholder="Email or phone" class="format" name="email" id="username"> <span id="asterisk-1"></span><br><br>
-                    <input type="password" name="pass" placeholder="Password" class="format" id="password" maxlength="10"> <span id="asterisk-2"></span>
+                    <input type="email" placeholder="Email or phone" class="format" name="email" id="username" required> <span id="asterisk-1"></span><br><br>
+                    <input type="password" name="pass" placeholder="Password" class="format" id="password" maxlength="8" required> <span id="asterisk-2"></span>
                     <p class="forget-password">Forget Password ?</p>
 
                     <div id="retype-sect"><span id="retype"></span></div>
@@ -45,12 +45,7 @@
        
     </div>
 
-    <!-- <script src="./JAVASCRIPT/Login.js"></script> -->
-    <script>
-        function toRedirect() {
-            
-        }
-    </script>
+
 </body>
 </html>
 
@@ -77,9 +72,15 @@
             
             if ($resultTwo == 1) {
                 
-                $_SESSION['email'] = $email;
+                if ($email === 'Admin@gmail.com' && $password === '10101010') {
+                    header("location:Admin.php");
+                } 
+                else {
+                    $_SESSION['email'] = $email;
 
-                header("location:Home.php");
+                    header("location:Home.php");
+
+                }           
 
             } else {
                 ?>
@@ -100,4 +101,5 @@
     }
     
 ?>
+
 

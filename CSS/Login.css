@@ -8,13 +8,15 @@ body {
     margin-top: 10vh;
 }
 .container {
-    height: 100%;
-    width: 100%;
+    min-height: 600px;
     display: flex;
     justify-content: center;
 }
 .image {
-    height: 375px;
+    min-width: 500px;
+    position: relative;
+    top: 9%;
+    margin-block: auto;
 }
 .content-section {
     display: flex;
@@ -42,14 +44,16 @@ body {
     color: red;
 }
 .format {
-    padding: 15px 20px;
+    padding: 20px 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
     width: 50vh;
     color: #4895ef;
     outline: none;
     border: none;
     background-color: rgb(228, 233, 236);
+    border-radius: 5px;
 }
-
 .button {
     width: 100%;
     display: flex;
@@ -88,9 +92,6 @@ footer ul li {
     color: #4895ef;
 }
 
-
-/* Utlity classes */
-
 .format::placeholder {
     color: #4895ef;
 }
@@ -123,24 +124,26 @@ footer ul li {
     color: white;
     cursor: pointer;
 }
-
 .inside-btn-1 {
     min-width: 125px;
     padding: 15px 20px;
     background-color: #4895ef;
     color: white;
     font-size: 1rem;
-    border: #4361ee;
+    border: #3284ed;
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
-
 .custom-btn {
-    color: #4361ee;
+    color: #3284ed;
     background-color: white;
-    border: 2px solid #4361ee;
+    border: 2px solid #3284ed;
 }
-
-
 .retype-section {
     border: 2px solid red;
+}
+.header-section {
+    font-size: 2.6rem;
 }

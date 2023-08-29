@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap'); 
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    margin: 20px 20px;
+    display: flex;
+    box-shadow: 0px 0px 20px #d2d2d2;
+    border-radius: 8px;
+
+}   
+.header-section {
+    color: #3284ed;
+}
+.info-section-1 {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 10px 20px;
+
+}
+.info-section-2 {
+    padding: 10px 20px;
+    display: flex;
+
+    flex-direction: column;
+    row-gap: 20px;
+
+}
+.inner-data {
+    padding: 5px 0px;
+}
+.tab-bo {
+    border: 2px solid #3284ed;
+    border-radius: 8px;
+}
+.table-data {
+    font-size: 1rem;
+    font-weight: bold;
+}
+.main-table {
+    border: 1px solid black;
+    min-width: 1180px;
+}
+.chk-cen {
+    text-align: center;
+}
+.btn {
+    background:linear-gradient(to top right ,#4361ee ,#4892f9);
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-section {
+    border: 2px solid green;
+    display: flex;
+    justify-content: end;
+    padding: 10px 20px;
+}
+.admin-rules-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.admin-rules-section ul li {
+    list-style: linear-gradient(to top right ,#4361ee ,#4892f9);
+    border-radius: 50%;
+
+}
+.admin-rules-section ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    padding: 0px 15px;
+    
+}
+.company {
+    font-weight: bold;
+    color: #3284ed;
+    font-size: 1.2rem;
+    margin-block: 5px;
+}
+.rules-section {
+    color: #3284ed;
+}

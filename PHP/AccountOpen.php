@@ -165,7 +165,7 @@
             }
             else {
                 ?>
-                    <script>alert("Fill all required fields Appropriately")</script>
+                   <script>alert("Fill all required fields Appropriately")</script>
                 <?php
             }
           
@@ -184,6 +184,7 @@
 
 
 ?>
+
 
 
 

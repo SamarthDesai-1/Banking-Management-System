@@ -30,7 +30,7 @@
         </div>
         
         <div class="box-2">
-            <h1>Privacy & Policy</h1>
+            <h1 class="big-font">Privacy & Policy</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime earum quibusdam explicabo. Alias dolores saepe voluptatibus, consequatur nisi modi minus!</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis necessitatibus ullam veniam nemo aliquam excepturi a, commodi impedit, expedita ipsam id nobis et aperiam placeat sunt doloremque nam corrupti consectetur.</p>
             <br><br>

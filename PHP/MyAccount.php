@@ -3,7 +3,6 @@
     session_start();
     $email = $_SESSION['email'];
 
-
     include("DatabaseClassFile.php");
     $database = new Database();
     $database->db("customerbankdetails_db");
@@ -57,6 +56,8 @@
     $sql = "insert into customerinfo(ID ,Email ,MICR ,AccountNo ,IFSC ,CurrentBalance ,MinBalance ,Loan) values('$id' ,'$email' ,'$toStringMICR' ,'$toStringACCOUNT' ,'$toStringIFSc' ,0 ,0 ,'NULL')";
     $insert->insertTable("customerbankdetails_db" ,$sql);
 
+
+
 ?>
 
 
@@ -69,12 +70,6 @@
     $rows = mysqli_query($con ,$sql);
     $result = mysqli_fetch_array($rows);
 
-
-    echo "Firstname : ".$result['Firstname'];
-    echo "Middlename : ".$result['Middlename'];
-    echo "Lastname : ".$result['Lastname'];
-
-
     
 
 ?>
@@ -82,7 +77,12 @@
 
 <?php
 
+    $con = mysqli_connect("localhost" ,"root" ,"" ,"customerbankdetails_db");
+    $sql = "select * from customerinfo where ID = '$pin'";
+    $rows = mysqli_query($con ,$sql);
+    $resultCustomerInfo = mysqli_fetch_array($rows);
 
+    setcookie("bal" ,$resultCustomerInfo['CurrentBalance']);
 
 ?>
 
@@ -93,54 +93,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account</title>
     <link rel="stylesheet" href="/COLLEGE MINI PROJECT/CSS/MyAccount.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="logo-section">
-            <h1 class="text-color-blue">American Express</h1>    
-            <!-- Account holder info section starts at here -->
+
+            <div class="btn-home">
+                    <h1 class="text-color-blue">Your Statement</h1>
+                <button class="home-btn"><a href="Home.php" class="link">Go to Home</a></button>
+            </div>
             <div class="account-holder-info">
-                <div class="image-section">
-                    <img src="./IMAGES/american3.png" alt="" class="custom-image">
-                    <!-- <img src="./IMAGES/american2.jpg" alt="" class="custom-image"> -->
-                    <!-- <img src="./IMAGES/american.png" alt="" class="custom-image"> -->
-                    <!-- <img src="./IMAGES/apple.jpg" alt="" class="custom-image"> -->
-                </div>
+
                 <div class="name-section">
                     <h4><?php echo $result['Firstname']."   "; echo $result['Middlename']."   "; echo $result['Lastname']; ?></h4>
                 </div>
             </div>
-            <!-- Account holder info section ends at here -->
         </div>
 
-        <!-- Account info section starts at here --> 
         <div class="account-info-section">
-            <h4><?php echo $result['Firstname']."   "; echo $result['Middlename']."   "; echo $result['Lastname']."   "; ?> your Account Statement</h4>
             
             <div class="date-section">
                 <h4><span id="dynamic-date"></span></h4>
             </div>
         </div>
-        <!-- Account info section ends at here --> 
 
         <div class="display-content-section">
             <div class="box" id="box-1">
-                <h1>About Bank Info</h1>
-                <h4>Country : <?php echo $result['Firstname']; ?></h4>
-                <h4>IFSC Code : <?php echo $result['Middlename']; ?> </h4>
-                <h4>MICR : <?php echo $result['Lastname']; ?> </h4>
-                <h4>Customer ID :</h4>
+                <h1 style="color: #3284ed;">About Bank Info</h1>
+                <h4>Country : <span>America</span></h4>
+                <h4>IFSC Code : <span><?php echo $resultCustomerInfo['IFSC']; ?></span></h4>
+                <h4>MICR : <span><?php echo $resultCustomerInfo['MICR']; ?></span> </h4>
+                <h4>Customer ID : <span><?php echo $resultCustomerInfo['ID']; ?></span></h4>
             </div>
             <div class="box" id="box-2">
-                <h1>Account Details</h1>
-                <h4>Account Type : </h4>
-                <h4>Account No : </h4>
-                <h4>Account openning date : </h4>
-                <h4>Account Name : </h4>
+                <h1 style="color: #3284ed;">Account Details</h1>
+                <h4>Account Type : <span> <?php echo $result['AccountType']; ?></span></h4>
+                <h4>Account No : <span><?php echo $resultCustomerInfo['AccountNo']; ?> </span></h4>
+                <!-- <h4>Account openning date : </h4> -->
+                <h4>Account Name : <span><?php echo $result['Firstname']."   "; echo $result['Middlename']."   "; echo $result['Lastname']."   "; ?></span></h4>
             </div>
             <div class="box" id="box-3">
 
-                <!-- PHP Script -->
                     <?php 
 
                         $con = mysqli_connect("localhost" ,"root" ,"" ,"customerbankdetails_db");
@@ -148,12 +142,11 @@
                         $rows = mysqli_query($con ,$sql);
                         $result = mysqli_fetch_array($rows);
 
-                        setcookie("Balance" ,$result['CurrentBalance']);
 
                     ?>
-                <h1>Net Balance</h1>
+
+                <h1 style="color: #3284ed;">Net Balance</h1>
                 <h2><?php echo "$".$result['CurrentBalance']; ?></h2>
-                <!-- PHP Script -->
 
                 <form method="post">
 
@@ -190,6 +183,7 @@
                             $newMINBALANCE = ($previousMINBALANCE + $minBalance);
                             $sql = "update customerinfo set CurrentBalance = $newBALANCE ,MinBalance = $newMINBALANCE where ID = '$pin'";
                             mysqli_query($con ,$sql);
+                            header('location:MyAccount.php');
                         }
                     }
 
@@ -200,20 +194,21 @@
                         $sql = "select CurrentBalance ,MinBalance from customerinfo where ID = '$pin'";
                         $rows = mysqli_query($con ,$sql);
                         $result = mysqli_fetch_array($rows);
-
+                        
                         $previousBALANCE = $result['CurrentBalance'];
                         $previousMINBALANCE = $result['MinBalance'];
 
                         if ($withdrawfunds != "") {
                             $minBalance = ($withdrawfunds * 20) / 100;
-
+                            
                             $newBALANCE = ($previousBALANCE - $withdrawfunds);
                             $newMINBALANCE = ($previousMINBALANCE - $minBalance);
                             $sql = "update customerinfo set CurrentBalance = $newBALANCE ,MinBalance = $newMINBALANCE where ID = '$pin'";
                             mysqli_query($con ,$sql);                            
-
-
+                            
+                            
                         }
+                        header('location:MyAccount.php');
 
 
                     }
@@ -225,7 +220,7 @@
             <div class="box" id="box-4">
                 
                 <div class="heading-section">
-                    <h1>Currency Convertor</h1>
+                    <h1 style="color: #3284ed;">Currency Convertor</h1>
                 </div>
                
 
@@ -260,7 +255,7 @@
                         <div class="output-section">
                             <?php
                             
-                                echo "Success";
+                                
                             
                             ?>
                         </div>
@@ -269,16 +264,11 @@
 
 
             </div>
-
-            <div class="box" id="box-5">
-                <h1>Loan Statement</h1>
-                <p>Currently no loan found</p>
-            </div>
             
             <div class="box" id="box-6">
 
                 <form method="post">
-                    <h1>Payment Section</h1>
+                    <h1 style="color: #3284ed;">Payment Section</h1>
                     <div class="transfer-section">
                         <button class="transfer-btn"><a href="Payment.php" class="links">Transfer Funds</a></button>
                     </div>
@@ -289,7 +279,7 @@
             <div class="box" id="box-7">
                 <div class="edit-section">
                     <!-- <h1>Policy Statement</h1> -->
-                    <h1>Edit Section</h1>
+                    <h1 style="color: #3284ed;">Edit Section</h1>
                     <div class="transfer-section">
                         <button class="transfer-btn" id="open-popup" onclick="createPopup(id)">Edit Details</button>
                     </div>
@@ -302,7 +292,7 @@
             <div class="overlay"></div>
             <div class="popup-content">
                 <div class="header-section">
-                    <h1>Your Account Details</h1>
+                    <h1 style="color: #3284ed;">Your Account Details</h1>
                 </div>
 
                 <div class="spacer"></div>
@@ -380,12 +370,12 @@
                                     <td>
                                         <h3 class="big-font">Address</h3>
                                     </td>
-                                    <td><textarea name="address" id="" cols="50" rows="8" class="items"></textarea></td>
+                                    <td><textarea name="address" id="" cols="50" rows="3" class="items"></textarea></td>
                                 </tr>
-                                <!-- <div class="controls">
+                                <div class="controls">
                                         <button class="close-btn">Close</button>
-                                        <button type="submit" class="submit-btn" name="update">Save</button>
-                                    </div> -->
+                                        <button type="submit" class="submit-btn" name="savebtn">Save</button>
+                                </div>
                             </div>
 
                         </div>
@@ -395,10 +385,10 @@
 
                 </form>
 
-                    <div class="controls">
+                    <!-- <div class="controls">
                         <button class="close-btn">Close</button>
-                        <button class="submit-btn">Submit</button>
-                    </div>
+                        <button type="submit" class="save-btn" name="savebtn">Save</button>
+                    </div> -->
                 </div>
             </div>
             <!-- Popup section -->
@@ -411,7 +401,7 @@
                     <!-- <span class="text">Account Verification</span> -->
                 </div>
                 <div class="text-area-section">
-                    <h1>Your transaction activities</h1>
+                    <h1  style="color: #3284ed;">Your transaction activities</h1>
                     <ul>
                         <li>
                             <h4>Lorem ipsum dolor sit amet.</h4>
@@ -426,11 +416,11 @@
                 </div>
             </div>
 
-            <div class="box" id="box-9">box-9
+            <div class="box" id="box-9">
                 <form method="post" class="cvv-form-section">
 
                     <div class="header-section">
-                        <h1>CVV</h1>
+                        <h1 style="color: #3284ed;">CVV</h1>
                     </div>
                     <div class="input-section">
                         <h3>Set 5 digit CVV</h3>
@@ -440,7 +430,7 @@
                     </div>
 
                     <div class="cvv-button-section">
-                        <input type="submit" value="Update" class="cvv-btn" name="cvvbtn">
+                        <input type="submit" value="Update" class="cvv-btn" name="updbtn">
                         <input type="submit" value="Set PIN" class="cvv-btn" name="cvvbtn">
                     </div>
 
@@ -475,52 +465,70 @@
 
                     }
                     
+                    if (isset($_POST['updbtn'])) {
+
+                        $con = mysqli_connect("localhost" ,"root" ,"" ,"cvv_db");
+                        $sql = "select * from cvvinfo where ID = '$pin'";
+                        $rows = mysqli_query($con ,$sql);
+                        $result = mysqli_fetch_array($rows);
+
+                        $oldPIN = $result['CVV'];
+
+                        $cvv = $_POST['cvv'];
+                        $concvv = $_POST['concvv'];
+
+                        if ($cvv != "" && $concvv != "") {
+                            if ($cvv === $concvv) {
+                                $update = new Database();
+                                $sql = "update cvvinfo set CVV = '$cvv' where ID = '$pin'";
+                                $update->update("cvv_db" ,$sql);
+                            }
+                            else {
+                                ?>
+                                    <script>alert("Retype cvv")</script>
+                                <?php
+                            }
+                        }  
+
+                    }
+                    
                 ?>
 
 
             </div>
 
-            <div class="box" id="box-10">box-10
-            <div class="progress">
-                    <div class="progress-done">
-
+            <div class="box" id="box-10">
+                <div class="insurance-section-header">
+                    <h1 style="color: #3284ed;">Insurance</h1>
+                    <div class="progress-report">
+                        <h2 class="font"><?php echo rand(0 ,100)."%"; ?></h2> <!-- generate this using random number -->
+                        <ul>
+                            <li><h3>Education Insurance</h3></li>
+                            <li><h3>Medical Insurance</h3></li>
+                            <li><h3>Personal Insurance</h3></li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="inputcontainer">
-                    <div>
-                        <h3>Value</h3>
-                        <input type="number" class="input">
-                    </div>
-                    <div>
-                        <h3>Max Value</h3>
-                        <input type="number" class="maxInput">
-                    </div>
-                </div>
+            
             </div>
-            <!-- <div class="box" id="box-11">box-11</div>
-            <div class="box" id="box-12">box-12</div>
-            <div class="box" id="box-13">box-13</div> -->
-            <div class="box" id="box-14">box-14</div>
-            <!-- <div class="box" id="box-15">box-15</div>
-            <div class="box" id="box-16">box-16</div>
-            <div class="box" id="box-17">box-17</div> -->
-            <div class="box" id="box-18">box-18</div>
+           
+
            
           
         </div>
 
         <div class="payment-statement-section">
-            <h1>Statement</h1>
+            <h1 style="color: #3284ed;">Statement</h1>
 
             <div class="account-statement-section">
 
                 <table class="main-table">
                     <div class="table-head-section">
                         <tr>
-                            <td class="inner-data table-data">ID</td>
-                            <td class="inner-data table-data">Email</td>
+                            <td class="inner-data table-data">Date</td>
+                            <td class="inner-data table-data">Sender Name</td>
                             <td class="inner-data table-data">Sender Account NO</td>
+                            <td class="inner-data table-data">Recevier Name</td>
                             <td class="inner-data table-data">Recevier Account NO</td>
                             <td class="inner-data table-data">Fund</td>
                         </tr>
@@ -537,9 +545,10 @@
 
                     ?>
                             <tr>
-                                <td class="inner-data"><?php echo $result['ID']; ?></td>
-                                <td class="inner-data"><?php echo $result['Email']; ?></td>
+                                <td class="inner-data"><?php echo $result['Date']; ?></td>
+                                <td class="inner-data"><?php echo $result['SenderName']; ?></td>
                                 <td class="inner-data"><?php echo $result['SenderAccountNo']; ?></td>
+                                <td class="inner-data"><?php echo $result['RecevierName']; ?></td>
                                 <td class="inner-data"><?php echo $result['RecevierAccountNo']; ?></td>
                                 <td class="inner-data"><?php echo $result['Fund']; ?></td>
                             </tr>
@@ -557,8 +566,41 @@
         </div>
     </div>
 
-    <script src="/COLLEGE MINI PROJECT/JAVASCRIPT/MyAccount.js"></script>
-   <script>
+    <!-- <script src="/COLLEGE MINI PROJECT/JAVASCRIPT/MyAccount.js"></script> -->
+    <script>
+        function showProgress() {
+
+            let circularProgress = document.querySelector(".circular-progress") ,
+            progressValue = document.querySelector(".progress-value");
+
+                
+            let cookieString = document.cookie.split("=");
+            let intNum = parseInt(cookieString[1]);
+
+            let progressStartValue = 0,
+                progressEndValue = Math.floor(Math.random() * 100),
+                speed = 50;
+                console.log(progressEndValue);
+
+            let progress = setInterval(() => {
+                progressStartValue++;
+
+                progressValue.textContent = `${progressStartValue}%`;
+                circularProgress.style.background = `conic-gradient(#3284ed ,${progressStartValue * 3.6}deg ,#ededed 0deg)`;
+
+                if(progressStartValue == progressEndValue) {
+                    clearInterval(progress);
+                    
+                    let element = document.querySelector(".text");
+                    // element.innerHTML = `<input type="button" value="Submit">`;
+
+                }
+                console.log(progressStartValue);
+            }, speed);
+
+        }
+        showProgress();
+
         function createPopup(id) {
             let popupNode = document.querySelector(id)
             let overlay = popupNode.querySelector(".overlay");
@@ -580,6 +622,9 @@
         let popup = createPopup("#popup");
         document.querySelector("#open-popup").addEventListener("click", popup);
     </script>
+    <script>
+       
+    </script>
 
 
 
@@ -588,7 +633,6 @@
 
 
 
- <!-- Update Data -->
  <?php
 
     $con = mysqli_connect("localhost" ,"root" ,"" ,"accountopen_db");
@@ -596,7 +640,7 @@
     $rows = mysqli_query($con ,$sql);
     $result = mysqli_fetch_array($rows);
 
-    if (isset($_POST['update'])) {
+    if (isset($_POST['savebtn'])) {
 
         $firstname = $_POST['fname'];
         $middlename = $_POST['mname'];
@@ -612,15 +656,15 @@
             $sql = "update accountinfo set Firstname = '$firstname' where ID = '$pin'";
             $update->update("accountopen_db" ,$sql);       
         }
-        if ($middlename != "") {
+        else if ($middlename != "") {
             $sql = "update accountinfo set Middlename = '$middlename' where ID = '$pin'";
             $update->update("accountopen_db" ,$sql);  
         }
-        if ($lastname != "") {
+        else if ($lastname != "") {
             $sql = "update accountinfo set Lastname = '$lastname' where ID = '$pin'";
             $update->update("accountopen_db" ,$sql);  
         }
-        if ($currency != "") {
+        else if ($currency != "") {
             $sql = "update accountinfo set Currency = '$currency' where ID = '$pin'";
             $update->update("accountopen_db" ,$sql);  
         }
@@ -628,19 +672,18 @@
             $sql = "update accountinfo set AccountType = '$accounttype' where ID = '$pin'";
             $update->update("accountopen_db" ,$sql);  
         }
-        if ($mobile != "") {
+        else if ($mobile != "") {
             $sql = "update accountinfo set Mobile = '$Mobile' where ID = '$pin'";
             $update->update("accountopen_db" ,$sql);  
         }
-        if ($nominee != "") {
+        else if ($nominee != "") {
             $sql = "update accountinfo set Nominee = '$nominee' where ID = '$pin'";
             $update->update("accountopen_db" ,$sql);  
         }
-        if ($address != "") {
+        else if ($address != "") {
             $sql = "update accountinfo set Address = '$address' where ID = '$pin'";
             $update->update("accountopen_db" ,$sql);  
         }
     }
 
 ?>
-<!-- Update Data -->

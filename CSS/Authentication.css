@@ -9,13 +9,14 @@
 .container {
     max-width: 1180px;
     margin-inline: auto;
-    border: 2px solid cadetblue;
     margin-block: 50px;
     display: flex;
     column-gap: 50px;
 }
+.big-font {
+    font-size: 3rem;
+}
 .box-2 {
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -33,14 +34,12 @@
 }
 
 .admin-image {
-    border: 1px solid red;
     position: relative;
     top: 50px;
     left: 85px;
     border-radius: 50%;
 }
 .form-section {
-    border: 1px solid black;
     min-width: 400px;
     display: flex;
     flex-direction: row;
@@ -55,9 +54,12 @@
     color: #4895ef;
     outline: none;
     border: none;
-    box-shadow: 0px 0px 20px #d2d4d6;
     border-radius: 5px;
     min-width: 250px;
+    background-color: rgb(228, 233, 236);
+    letter-spacing: 5px;
+    text-align: center;
+    font-size: 1rem;
 }
 .format::placeholder {
     color: #4895ef;
@@ -76,10 +78,8 @@
     border-radius: 5px;
     padding: 10px 10px;
     border: none;
+    font-weight: bold;
 
-}
-.btn-primary:hover {
-    border: none;
 }
 .btn {
     padding: 10px 30px;
@@ -89,12 +89,11 @@
     font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
-    transition: 0.4s ease-in-out;
+    font-size: 1rem;
+    font-weight: bold;
 }
 .btn:hover {
-    background-color: #fff;
-    color: #4895ef;
-    border: 2px solid #4895ef;
+    background-color: #4361ee;
 }
 
 

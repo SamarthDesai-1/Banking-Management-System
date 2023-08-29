@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap'); 
 
 body {
-    background-color: rgb(222, 222, 222);
+    /* background-color: rgb(222, 222, 222); */
 }
 * {
     margin: 0px;
@@ -15,8 +15,9 @@ body {
     background-color: #fff;
     position: relative;
     top: 50px;
-    box-shadow: 0px 0px 20px rgb(161, 157, 157);
-    border-radius: 5px;
+    box-shadow: 0px 3px 20px #d2d3d4;
+    padding: 20px 20px;
+    border-radius: 8px;
 }
 .box-1 {
     display: flex;
@@ -48,9 +49,11 @@ body {
     background: #4895ef;
     border: 2px solid #4895ef;
     color: white;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
     max-width: 150px;
     border-radius: 5px;
+
 }
 .btn:hover {
     background-color: #0775f4;
@@ -62,7 +65,14 @@ body {
 .company-section {
     color: #0775f4;
 }
-
+.header-section {
+    border: 1px solid red;
+    padding: 0px 20px;
+    max-width: 600px;
+}
+.head-text {
+    font-size: 4rem;
+}
 
 
 

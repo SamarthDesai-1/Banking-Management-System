@@ -9,6 +9,10 @@
 <body>
     <div class="container">
         
+            <div class="header-section">
+                <h1 class="head-text">Generate PIN</h1>
+            </div>
+            
             <div class="box-1">
     
                 <div class="generate-section">
@@ -126,4 +130,6 @@
 
 
 ?>
+
+
 

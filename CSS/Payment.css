@@ -38,21 +38,25 @@
     
 }
 label {
-    color: blue;
+    color: #4895ef;
 }
 .format {
     max-width: 400px;
-    padding: 10px 20px;
+    padding: 15px 20px;
     font-weight: bold;
     outline: none;
     border: 1px solid #4895ef;
     background-color: rgb(228, 233, 236);
     color: #4895ef;
     border: none;
+    /* font-size: 1rem; */
+}
+.foramt::placeholder {
+    color: #4895ef;
 }
 .format-cvv {
     max-width: 400px;
-    padding: 10px 20px;
+    padding: 15px 20px;
     font-weight: bold;
     letter-spacing: 5px;
     outline: none;
@@ -76,11 +80,11 @@ label {
     padding: 15px 20px;
     background: transparent;
     border: 2px solid #4895ef;
-    min-width: 300px;
     font-size: 1rem;
     color: #4895ef;
     border-radius: 5px;
     transition: 0.7s ease-in-out;
+    font-weight: bold;
 }
 
 .cvv-amount-section {
@@ -99,7 +103,7 @@ label {
 }
 .header-section {
     text-align: center;
-    color: blue;
+    color: #4895ef;
 }
 
 .info-section {
@@ -109,8 +113,9 @@ label {
     max-width: 570px;
 }
 .info-section h1 {
-    color: blue;
+    color: #4895ef;
 }
 .info-section ul li {
     color: #4895ef;
 }
+

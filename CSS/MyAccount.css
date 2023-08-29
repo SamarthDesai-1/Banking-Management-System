@@ -9,10 +9,8 @@
 .container {
     max-width: 1180px;
     margin-inline: auto;
-    margin-top: 10px;
 }
 .logo-section {
-    border: 1px solid red;
     display: flex;
     justify-content: space-between;
     padding-block: 10px;
@@ -37,15 +35,32 @@
 
 /* Account info section starts at here */
 .account-info-section {
-    border: 1px solid red;
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
     padding-block: 10px;
 }
 /* Account info section ends at here */
 
-
+.btn-home {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    row-gap: 10px;
+}
+.home-btn {
+    max-width: 150px;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 5px;
+    background: transparent;
+    border: 2px solid #3284ed;
+    border-radius: 5px;
+}
+.link {
+    text-decoration: none;
+    color: #3284ed;
+}
 
 
 
@@ -53,7 +68,6 @@
 
     /* grid section starts here */
     .display-content-section {
-        border: 2px solid black;
         max-width: 1180px;
         display: grid;
         margin-top: 20px;
@@ -61,11 +75,14 @@
         column-gap: 25px;
         grid-template-columns: 200px 200px 200px 200px 200px;
         justify-content: center;
-
+        padding: 20px 0px;
     }
     .box {
-        border: 2px solid green;
         padding: 15px 20px;
+    }
+    .date-section {
+        font-weight: bold;
+        font-size: 1.1rem;
     }
     #box-1 {
         grid-row: span 1;
@@ -73,27 +90,48 @@
         padding: 20px 20px;
         border-radius: 8px;
         box-shadow: 0px 0px 10px #d2d2d2;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        font-size: 1.1rem;
+        font-weight: bold;
     }
+    
     #box-2 {
         box-shadow: 0px 0px 10px #d2d2d2;
+        font-size: 1.1rem;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
         grid-column: span 2;
         padding: 20px 20px;
         border-radius: 8px;
-
+        
     }
     #box-3 {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
         box-shadow: 0px 0px 10px #d2d2d2;
         grid-row: span 1;
         grid-column: span 2;
         border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
 
+    }
+    #box-3 h2 {
+        font-size: 2.5rem;
     }
     #box-4 {
         grid-column: span 3;
         grid-row: span 3;
         border-radius: 8px;
         box-shadow: 0px 0px 10px #d2d2d2;
-
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
 
     }
     #box-5 {
@@ -112,6 +150,15 @@
         border-radius: 8px;
         box-shadow: 0px 0px 10px #d2d2d2;
     }
+    .payment-statement-section {
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #d2d2d2;
+        margin-bottom: 10%;
+
+    }
+    .payment-statement-section h1 {
+        padding: 0px 20px;
+    }
 
     #box-8 {
         grid-column: span 3;
@@ -129,8 +176,11 @@
         grid-row: span 5;
     }
     #box-10 {
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px #d2d2d2;
         grid-row: span 3;
         grid-column: span 3;
+
     }
     #box-14 {
         grid-column: span 4; ;
@@ -156,7 +206,7 @@
         width: 250px;
         background-color: #f0ff;
         border-radius: 50%;
-        background: conic-gradient(#7d2ae8 ,3.6deg ,#ededed 0deg); 
+        background: conic-gradient(#3284ed ,3.6deg ,#ededed 0deg);  /* 7d2ae8 */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -175,13 +225,12 @@
         position: relative;
         font-size: 30px;
         font-weight: 600;
-        color: #7d2ae8;
+        color: #3284ed;
     }
     /* grid section endss here */
 
     /* payment-statement-section starts here */
     .payment-statement-section {
-        border: 1px solid red;
         margin-top: 10px;
     }
     /* payment-statement-section endss here */
@@ -194,7 +243,8 @@
 
 /* Utlity classes */
 .text-color-blue {
-    color: #4361ee;
+    color: #3284ed;
+    font-size: 2.5rem;
 }
 
 .form-section {
@@ -218,9 +268,8 @@
     font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
-    border: none;
-   
-    background: linear-gradient(to top right ,#4361ee ,#7d2ae8);
+    border: none;   
+    background: linear-gradient(to top right ,#4361ee ,#4892f9);
 }
 .drop {
     min-width: 400px;
@@ -229,12 +278,13 @@
     border-bottom: 2px solid black;
 }
 .curreny-convertor-section {
-    border: 2px solid black;
     display: flex;
     flex-direction: column;
     max-width: 480px;
     row-gap: 10px;
-    margin-inline: auto;
+    margin-block: auto;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 .heading-section {
     display: flex;
@@ -247,6 +297,9 @@
     outline: none;
     font-weight: bold;
     font-size: 1rem;
+    background: transparent;
+    border: 2px solid #3284ed;
+    border-radius: 8px;
 
 }
 .con-btn {
@@ -254,7 +307,7 @@
     padding: 10px 20px;
     cursor: pointer;
     margin-block: 5px;
-    background: linear-gradient(to top right ,#4361ee ,#7d2ae8);
+    background: linear-gradient(to top right ,#4361ee ,#4892f9);
     font-weight: bold;
     color: white;
     border: none;
@@ -268,7 +321,7 @@
 }
 
 .transfer-btn {
-    background: linear-gradient(to top right ,#4361ee ,#7d2ae8);
+    background: linear-gradient(to top right ,#4361ee ,#4892f9);
     padding: 10px 12px;
     color: white;
     font-weight: bold;
@@ -281,12 +334,11 @@
     margin-block: 10px;
 }
 .balance-section {
-    border: 2px solid black;
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
 }
-
-.edit-section {
-
+.balance-section>h2 {
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 
@@ -518,11 +570,9 @@
     font-size: 1rem;
     font-weight: bold;
 }
-
-.big-font {
-    font-size: 1.3rem;
+.font {
+    font-size: 5rem;
 }
-
 .spacer {
     margin-block: 10px;
 }
@@ -594,12 +644,27 @@
     margin: 10px 0px;
 }
 .cvv-btn {
-    background: linear-gradient(to top right ,#4361ee ,#7d2ae8);
+    background:linear-gradient(to top right ,#4361ee ,#4892f9);
     color: white;
     font-weight: bold;
     padding: 10px 20px;
     font-size: 1rem;
-    border: none;
     border-radius: 5px;
+    border: none;
     cursor: pointer;
+}
+
+.progress-report {
+    padding: 20px 20px;
+    border-radius: 8px;
+}
+.progress-report ul {
+    list-style: none;
+}
+.big-font {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+span {
+    color: #3284ed;
 }

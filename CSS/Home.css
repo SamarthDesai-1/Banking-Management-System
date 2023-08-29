@@ -12,7 +12,7 @@
     margin-inline: auto;
     position: relative;
     justify-content: space-between;
-    margin-bottom: 10vh;
+    margin-bottom: 10px;
 }
 .logo-section {
     padding-inline: 20px;
@@ -125,6 +125,7 @@ nav>ul>li:hover .megamenu {
     text-align: center;
     cursor: pointer;
     background: transparent;
+    font-weight: bold;
 }
 .primary {
     border: 2px solid #4895ef;
@@ -159,7 +160,13 @@ nav>ul>li:hover .megamenu {
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
+    /* row-gap: 10px; */
     padding: 50px;
+}
+.title-section {
+    margin-block: 30px;
+    font-size: 2rem;
+    color: #4361ee;
 }
 .auto-type-setting {
     color: #4895ef;
@@ -218,7 +225,7 @@ nav>ul>li:hover .megamenu {
 
 /* Features section CSS starts here */
 .box-3 {
-    border-radius: 5px;
+    border-radius: 10px;
     position: relative;
     top: 100px;
     max-width: 1180px;
@@ -232,16 +239,18 @@ nav>ul>li:hover .megamenu {
 .spec-btn {
     max-width: 200px;
     padding: 15px 20px;
-    background-color: rgb(252, 240, 220);
     margin-top: 15px;
+    background: transparent;
     border-radius: 5px;
     color: black;
     background-color: rgb(254, 252, 249);
     text-align: center;
-    box-shadow: 0px 0px 20px antiquewhite;
     cursor: pointer;
     border: 2px solid wheat;
     margin-block: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(241, 173, 46);
 }
 .small-font {
     font-size: 0.8rem;
@@ -301,14 +310,19 @@ nav>ul>li:hover .megamenu {
     padding: 100px 100px;
 }
 .spec-btn-2 {
-    max-width: 200px;
+    max-width: 250px;
     padding: 20px 20px;
     font-size: 1rem;
     background-color: #4895ef;
     color: white;
     border: none;
     border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
     cursor: pointer;
+}
+.spec-btn-2:hover {
+    background-color: #4361ee;
 }
 /* Features section CSS endss here */
 
@@ -419,7 +433,7 @@ nav>ul>li:hover .megamenu {
 .section ul li:hover {
     text-decoration: underline;
     text-underline-offset: 5px;
-    transform: translateY(-7px);
+    /* transform: translateY(-7px); */
     cursor: pointer;
 }
 .section ul {
@@ -470,6 +484,7 @@ background-position: center;
 background-size:        cover;
 background-size:        10px 20p;
 background-image:     linear-gradient (white, black); */
+
 
 
 
